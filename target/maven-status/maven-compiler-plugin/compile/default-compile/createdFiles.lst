@@ -1,0 +1,12 @@
+com/capstone/backend/user/LoginRequest.class
+com/capstone/backend/Settings/Settings.class
+com/capstone/backend/userDetails/UserDetails.class
+com/capstone/backend/user/UserService.class
+com/capstone/backend/user/RegisterRequest.class
+com/capstone/backend/user/User.class
+com/capstone/backend/JobwizardApplication.class
+com/capstone/backend/userDetails/UserDetailsController.class
+com/capstone/backend/user/UserController.class
+com/capstone/backend/userDetails/UserDetailsRepository.class
+com/capstone/backend/user/UserRepository.class
+com/capstone/backend/user/PasswordService.class
