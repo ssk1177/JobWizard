@@ -1,0 +1,29 @@
+Serve as lead data strategist to identify and integrate new datasets that can be leveraged through our product capabilities, and work closely with the engineering team in the development of data products
+Execute analytical experiments to help solve problems across various domains and industries
+Identify relevant data sources and sets to mine for client business needs, and collect large structured and unstructured datasets and variables
+Devise and utilize algorithms and models to mine big-data stores; perform data and error analysis to improve models; clean and validate data for uniformity and accuracy
+Analyze data for trends and patterns, and interpret data with clear objectives in mind
+Implement analytical models in production by collaborating with software developers and machine-learning engineers
+Seven or more years of experience in data science
+Proficiency with data mining, mathematics, and statistical analysis
+Advanced experience in pattern recognition and predictive modeling
+Experience with Excel, PowerPoint, Tableau, SQL, and programming languages (ex: Java/Python, SAS)
+Ability to work effectively in a dynamic, research-oriented group that has several concurrent projects
+Bachelor’s degree (or equivalent) in statistics, applied mathematics, or related discipline
+Two or more years of project management experience
+Professional certification
+
+Serve as lead data strategist to identify and integrate new datasets that can be leveraged through our product capabilities, and work closely with the engineering team in the development of data products
+Execute analytical experiments to help solve problems across various domains and industries
+Identify relevant data sources and sets to mine for client business needs, and collect large structured and unstructured datasets and variables
+Devise and utilize algorithms and models to mine big-data stores; perform data and error analysis to improve models; clean and validate data for uniformity and accuracy
+Analyze data for trends and patterns, and interpret data with clear objectives in mind
+Implement analytical models in production by collaborating with software developers and machine-learning engineers
+Seven or more years of experience in data science
+Proficiency with data mining, mathematics, and statistical analysis
+Advanced experience in pattern recognition and predictive modeling
+Experience with Excel, PowerPoint, Tableau, SQL, and programming languages (ex: Java/Python, SAS)
+Ability to work effectively in a dynamic, research-oriented group that has several concurrent projects
+Bachelor’s degree (or equivalent) in statistics, applied mathematics, or related discipline
+Two or more years of project management experience
+Professional certification
