@@ -7,6 +7,7 @@ com/capstone/backend/user/User.class
 com/capstone/backend/JobwizardApplication.class
 com/capstone/backend/userDetails/UserDetailsController.class
 com/capstone/backend/user/UserController.class
+com/capstone/backend/config/CorsConfig.class
 com/capstone/backend/userDetails/UserDetailsRepository.class
 com/capstone/backend/user/UserRepository.class
 com/capstone/backend/user/PasswordService.class

@@ -1,5 +1,6 @@
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/JobwizardApplication.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/Settings/Settings.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/config/CorsConfig.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/LoginRequest.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/PasswordService.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/RegisterRequest.java
