@@ -1,2 +1,2 @@
-web: java -jar target/your-application-name.jar
+web: java -jar target/backend-0.0.1-SNAPSHOT.jar
 
