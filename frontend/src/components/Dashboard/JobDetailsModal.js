@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const JobDetailsModal = ({ jobId, onClose }) => {
   const [jobDetails, setJobDetails] = useState(null);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     if (jobId) {
@@ -11,7 +12,7 @@ const JobDetailsModal = ({ jobId, onClose }) => {
 
   const fetchJobDetails = async (jobId) => {
     try {
-      const response = await fetch(`/job-details/${jobId}`);
+      const response = await fetch(`${API_URL}/job-details/${jobId}`);
       const data = await response.json();
       setJobDetails(data);
     } catch (error) {

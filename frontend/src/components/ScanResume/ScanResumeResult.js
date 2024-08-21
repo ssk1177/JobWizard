@@ -10,6 +10,7 @@ import CircularProgressBar from "./CircularProgressBar";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const ScanResumeResult = ({ route, navigation }) => {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [matchScore, setMatchScore] = useState("");
@@ -39,7 +40,7 @@ const ScanResumeResult = ({ route, navigation }) => {
 
 
   useEffect(() => {
-    fetch("/results/"+temp_data_id)
+    fetch(`${API_URL}/results/`+temp_data_id)
       .then((response) => response.json())
       .then((data) => {
         if(data.status === 200) {

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
+    const API_URL = process.env.REACT_APP_API_URL;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
@@ -37,7 +38,7 @@ const Login = () => {
       try {
         if (DEBUG) console.log("Inside handleLogin");
 
-        const response = await axios.post("http://localhost:5000/login", {
+        const response = await axios.post(`${API_URL}/login`, {
           username: username,
           password: password,
         });
@@ -72,7 +73,7 @@ const Login = () => {
         if (DEBUG) console.log("Inside handleRegisterSubmit");
 
         const response = await axios.post(
-          "http://localhost:5000/register",
+          `${API_URL}/register`,
           formData
         );
         console.log(response.data);

@@ -4,6 +4,7 @@ import linkedin_img from "../../assets/images/linkedin_logo.png";
 import './Dashboard.css'
 
 const ApplicationsTable = ({ onShowDetails }) => {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
@@ -12,7 +13,7 @@ const ApplicationsTable = ({ onShowDetails }) => {
 
   const fetchJobListings = async () => {
     try {
-      const response = await fetch("/get_listings");
+      const response = await fetch(`${API_URL}/get_listings`);
       const data = await response.json();
       setApplications(data);
     } catch (error) {

@@ -10,6 +10,7 @@ import "./Profile.css";
 import Layout from "../Layout";
 
 const Profile = () => {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [activeTab, setActiveTab] = useState("personalInformation");
   const [userData, setUserData] = useState({});
   const [notificationsData, setNotificationsData] = useState({});
@@ -39,7 +40,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get("/get_profile");
+        const response = await axios.get(`${API_URL}/get_profile`);
         const data = response.data;
 
         console.log("data:", data);
@@ -111,7 +112,7 @@ const Profile = () => {
     try {
       console.log("from profile we sent, formData:", formData);
 
-      const response = await axios.post("/update_profile", formData, {
+      const response = await axios.post(`${API_URL}/update_profile`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

@@ -17,6 +17,7 @@ const ScanResume = ({ show, handleClose }) => {
   const pdfContainerRef = useRef(null);
   const jobDescriptionRef = useRef(null);
   const navigate = useNavigate();
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -50,7 +51,7 @@ const ScanResume = ({ show, handleClose }) => {
     const form = document.getElementById("scanResumeForm");;
     const formData = new FormData(form);
     console.log("formData:", formData)
-    fetch("/scan_resume", {
+    fetch(`${API_URL}/scan_resume`, {
       method: "POST",
       body: formData
     })

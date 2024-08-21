@@ -9,6 +9,8 @@ import axios from "axios";
 
 
 const Navbar = () => {
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const [showScanResumeModal, setShowScanResumeModal] = useState(false);
 
   const handleScanOpenModal = () => setShowScanResumeModal(true);
@@ -19,7 +21,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       // Call the logout endpoint on the backend
-      const response = await axios.post("/logout");
+      const response = await axios.post(`${API_URL}/logout`);
 
       if (response.status === 200) {
         // Redirect to the login page

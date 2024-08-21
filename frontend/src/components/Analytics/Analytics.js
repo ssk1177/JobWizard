@@ -19,9 +19,10 @@ import {
 } from "recharts";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const API_URL = process.env.REACT_APP_API_URL;
 
 const fetchData = async () => {
-  const response = await axios.get("http://localhost:5000/analytics/data");
+  const response = await axios.get(`${API_URL}/analytics/data`);
   return response.data;
 };
 
