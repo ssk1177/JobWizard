@@ -2,6 +2,9 @@ package com.capstone.backend.userDetails;
 
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,32 +20,42 @@ public class UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false, unique = true)
+    @Column(name = "userId", nullable = false, unique = true)
     private Long userId;
+    
+    @Column(name = "userName", nullable = false, unique = true)
+	private String userName;
 
     @Column(name = "email", length = 255, unique = true, nullable = false)
     private String email;
 
-    @Column(name = "first_name", length = 50)
+    @Column(name = "firstName", length = 50)
     private String firstName;
 
-    @Column(name = "last_name", length = 50)
+    @Column(name = "lastName", length = 50)
     private String lastName;
 
-    @Column(name = "phone_number", length = 20)
+    @Column(name = "phoneNumber", length = 20)
     private String phoneNumber;
 
     @Column(name = "role", length = 50)
     private String role;
 
     @Lob
-    @Column(name = "profile_pic")
+    @Column(name = "profilePic")
     private byte[] profilePic;
 
-    @Column(name = "updated_on", nullable = false)
+    @Column(name = "updatedOn", nullable = false)
     private LocalDateTime updatedOn;
+    
+    public UserDetails(Long userId, String userName, String email) {
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+		this.updatedOn = LocalDateTime.now();
+	}
 
-    // Getters and setters
+	// Getters and setters
     public Long getId() {
         return id;
     }
@@ -114,4 +127,18 @@ public class UserDetails {
     public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
     }
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -1,6 +1,9 @@
 package com.capstone.backend.user;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
 
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -9,17 +12,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userId;
+	private Long userId;
 	
-	@Column(name = "username", nullable = false, unique = true)
-	private String username;
+	@Column(name = "userName", nullable = false, unique = true)
+	private String userName;
 	
 	@Column(name = "password", nullable = false)
 	private String password;
@@ -36,27 +38,26 @@ public class User {
 	}
 	
 	public User(String username, String password, String email) {
-		this.username = username;
+		this.userName = username;
 		this.password = password;//new BCryptPasswordEncoder().encode(password);
 		this.email = email;
 		this.createdOn = LocalDateTime.now();
 	}
 	
-	
-	public Integer getUser_id() {
+	public Long getUser_id() {
 		return userId;
 	}
 	
-	public void setUser_id(Integer userId) {
+	public void setUser_id(Long userId) {
 		this.userId = userId;
 	}
 	
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 	
 	public void setusername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 	
 	public String getPassword() {
@@ -98,7 +99,12 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [user_id=" + userId + ", username=" + username + ", email=" + email + ", createdOn=" + createdOn
+		return "User [user_id=" + userId + ", username=" + userName + ", email=" + email + ", createdOn=" + createdOn
 				+ "]";
+	}
+
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
