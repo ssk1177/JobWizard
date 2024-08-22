@@ -21,8 +21,11 @@ const ProfileComponent = () => {
           const { username, role, imageUrl } = response.data.data;
           setUsername(username);
           setUserRole(role);
-          if (imageUrl) {
+          // If imageUrl is available, use it; otherwise, keep the default image
+          if (imageUrl && imageUrl.trim() !== "") {
             setUserImage(imageUrl);
+          } else {
+            setUserImage(default_icon); // Fallback to default image
           }
         }
       } catch (error) {

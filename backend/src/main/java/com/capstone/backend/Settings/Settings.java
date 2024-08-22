@@ -1,4 +1,4 @@
-package com.capstone.backend.Settings;
+package com.capstone.backend.settings;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

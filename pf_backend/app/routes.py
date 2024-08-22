@@ -57,88 +57,88 @@ def analytics_data():
 #     return response
 
 
-@routes.route('/register', methods=['GET', 'POST', 'OPTIONS'])
-def register():
-    if DEBUG:
-        print("Inside register, entering...")
+# @routes.route('/register', methods=['GET', 'POST', 'OPTIONS'])
+# def register():
+#     if DEBUG:
+#         print("Inside register, entering...")
 
-    try:
-        data = request.json
+#     try:
+#         data = request.json
 
-        print("Inside register, data:", data)
+#         print("Inside register, data:", data)
 
-        hashed_password = genHashPass(data.get('password'))
+#         hashed_password = genHashPass(data.get('password'))
 
-        new_user = User(username=data.get('username'),
-                        password=hashed_password,
-                        email=data.get('email'),
-                        created_on=datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+#         new_user = User(username=data.get('username'),
+#                         password=hashed_password,
+#                         email=data.get('email'),
+#                         created_on=datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
 
-        db.session.merge(new_user)
-        db.session.commit()
+#         db.session.merge(new_user)
+#         db.session.commit()
 
-        # Verify if user is created
-        fetched_user = db.session.query(User).filter_by(
-            email=data.get('email')).first()
+#         # Verify if user is created
+#         fetched_user = db.session.query(User).filter_by(
+#             email=data.get('email')).first()
 
-        if fetched_user:
-            print("new user id:", fetched_user.id)
-            # Create user_details for the registered user
-            db.session.add(User_details(user_id=fetched_user.id,
-                                        profile_pic=compressImg(
-                                            'static/images/profile-default-icon.png'),
-                                        email=fetched_user.email,
-                                        updated_on=datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')))
+#         if fetched_user:
+#             print("new user id:", fetched_user.id)
+#             # Create user_details for the registered user
+#             db.session.add(User_details(user_id=fetched_user.id,
+#                                         profile_pic=compressImg(
+#                                             'static/images/profile-default-icon.png'),
+#                                         email=fetched_user.email,
+#                                         updated_on=datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')))
 
-            # Add basic settings
-            db.session.add(Settings(user_id=fetched_user.id,
-                                    auto_apply=False,
-                                    webscrape_sites='Indeed',
-                                    match_score_cutoff=45))
+#             # Add basic settings
+#             db.session.add(Settings(user_id=fetched_user.id,
+#                                     auto_apply=False,
+#                                     webscrape_sites='Indeed',
+#                                     match_score_cutoff=45))
 
-            db.session.commit()
-        else:
-            print("User creation failed")
+#             db.session.commit()
+#         else:
+#             print("User creation failed")
 
-        db.session.close()
+#         db.session.close()
 
-        return jsonify({"message": "User registered successfully!"}), 200
+#         return jsonify({"message": "User registered successfully!"}), 200
 
-    except Exception as e:
-        current_app.logger.error(
-            "Error registering profile: %s", e, exc_info=True)
-        print("Inside register, Exception raised, reason:", e)
+#     except Exception as e:
+#         current_app.logger.error(
+#             "Error registering profile: %s", e, exc_info=True)
+#         print("Inside register, Exception raised, reason:", e)
 
-        msg = "{reason} User registeration failed!".format(reason=e)
-        return jsonify({"message": msg}), 500
+#         msg = "{reason} User registeration failed!".format(reason=e)
+#         return jsonify({"message": msg}), 500
 
 
-@ routes.route('/login', methods=['GET', 'POST'])
-def login():
+# @ routes.route('/login', methods=['GET', 'POST'])
+# def login():
 
-    try:
-        data = request.json
+#     try:
+#         data = request.json
 
-        print("Inside login, data:", data)
+#         print("Inside login, data:", data)
 
-        user = User.query.filter_by(username=data['username']).first()
+#         user = User.query.filter_by(username=data['username']).first()
 
-        if user and checkHashPass(user.password, data['password']):
-            login_user(user)
+#         if user and checkHashPass(user.password, data['password']):
+#             login_user(user)
 
-            if DEBUG:
-                print("Inside login, current user:", current_user.id)
+#             if DEBUG:
+#                 print("Inside login, current user:", current_user.id)
 
-            return jsonify({"message": "User Logged In Successfully!"}), 200
-        else:
-            return jsonify({"message": "User Login failed, Check Credentials!"}), 500
+#             return jsonify({"message": "User Logged In Successfully!"}), 200
+#         else:
+#             return jsonify({"message": "User Login failed, Check Credentials!"}), 500
 
-    except Exception as e:
+#     except Exception as e:
 
-        print("Inside login, Exception raised, reason:", e)
+#         print("Inside login, Exception raised, reason:", e)
 
-        msg = "{reason} User login failed!".format(reason=e)
-        return jsonify({"message": msg}), 500
+#         msg = "{reason} User login failed!".format(reason=e)
+#         return jsonify({"message": msg}), 500
 
 
 def getRequiredData(userId):
@@ -260,47 +260,47 @@ def insertJobListings(job_listings, required_data, similarities_score_list):
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 
-@ routes.route('/get_listings', methods=['GET'])
-@ login_required
-def get_listings():
-    if DEBUG:
-        print("Entering get_listings...")
-    user_id = current_user.id
-    fetched_applications = Application.query.all()
+# @ routes.route('/get_listings', methods=['GET'])
+# @ login_required
+# def get_listings():
+#     if DEBUG:
+#         print("Entering get_listings...")
+#     user_id = current_user.id
+#     fetched_applications = Application.query.all()
 
-    job_description_list = []
+#     job_description_list = []
 
-    for applicaftion in fetched_applications:
-        # desc = str(applicaftion.job_desc, 'utf-8')
-        job_description_list.append(applicaftion.job_desc)
+#     for applicaftion in fetched_applications:
+#         # desc = str(applicaftion.job_desc, 'utf-8')
+#         job_description_list.append(applicaftion.job_desc)
 
-    # resume_blob = fetch_resume(user_id)
-    # match_scores = performSimilarityMatch(resume_blob, job_description_list)
+#     # resume_blob = fetch_resume(user_id)
+#     # match_scores = performSimilarityMatch(resume_blob, job_description_list)
 
-    applications_data = [
-        {
-            'job_id': applicaftion.job_id,
-            'user': applicaftion.user_id,
-            'job_title': applicaftion.job_title,
-            'company_name': applicaftion.company_name,
-            'job_desc': applicaftion.job_desc,
-            'salary': applicaftion.salary,
-            'location': applicaftion.location,
-            'posted': applicaftion.posted,
-            'platform': applicaftion.platform,
-            'applied_on': applicaftion.applied_on,
-            'match_score': applicaftion.match_score,
-            'status': applicaftion.status,
-            'apply_link': applicaftion.apply_link
-        }
-        # zip(fetched_applications, match_scores)
-        for applicaftion in fetched_applications
-    ]
+#     applications_data = [
+#         {
+#             'job_id': applicaftion.job_id,
+#             'user': applicaftion.user_id,
+#             'job_title': applicaftion.job_title,
+#             'company_name': applicaftion.company_name,
+#             'job_desc': applicaftion.job_desc,
+#             'salary': applicaftion.salary,
+#             'location': applicaftion.location,
+#             'posted': applicaftion.posted,
+#             'platform': applicaftion.platform,
+#             'applied_on': applicaftion.applied_on,
+#             'match_score': applicaftion.match_score,
+#             'status': applicaftion.status,
+#             'apply_link': applicaftion.apply_link
+#         }
+#         # zip(fetched_applications, match_scores)
+#         for applicaftion in fetched_applications
+#     ]
 
-    if DEBUG:
-        print("Exiting get_listings...")
+#     if DEBUG:
+#         print("Exiting get_listings...")
 
-    return jsonify(applications_data)
+#     return jsonify(applications_data)
 
 
 @ routes.route('/job-details/<string:job_id>')
@@ -386,24 +386,24 @@ def get_user_profile():
         return jsonify({'status': 500, 'message': 'Exception raised in backend:get_user_profile'}), 500
 
 
-@ routes.route('/get_image', methods=['GET'])
-@ login_required
-def get_image():
-    try:
-        user = User_details.query.filter_by(user_id=current_user.id).first()
+# @ routes.route('/get_image', methods=['GET'])
+# @ login_required
+# def get_image():
+#     try:
+#         user = User_details.query.filter_by(user_id=current_user.id).first()
 
-        if user and user.profile_pic:
-            # Decompress the image data
-            decompressed_image_data = zlib.decompress(user.profile_pic)
-            # Adjust MIME type if needed
-            return Response(decompressed_image_data, mimetype='image/jpeg')
-        else:
-            return jsonify({'status': 404, 'message': 'Image not found'}), 404
-    except Exception as e:
-        current_app.logger.error(
-            "Error updating profile: %s", e, exc_info=True)
+#         if user and user.profile_pic:
+#             # Decompress the image data
+#             decompressed_image_data = zlib.decompress(user.profile_pic)
+#             # Adjust MIME type if needed
+#             return Response(decompressed_image_data, mimetype='image/jpeg')
+#         else:
+#             return jsonify({'status': 404, 'message': 'Image not found'}), 404
+#     except Exception as e:
+#         current_app.logger.error(
+#             "Error updating profile: %s", e, exc_info=True)
 
-        return jsonify({'status': 500, 'message': 'Exception raised in backend:get_image'}), 500
+#         return jsonify({'status': 500, 'message': 'Exception raised in backend:get_image'}), 500
 
 
 @routes.route('/upload_image', methods=['POST'])
