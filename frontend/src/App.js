@@ -20,6 +20,8 @@ import "./App.css";
 // Import jwt-decode using CommonJS
 const jwtDecode = require("jwt-decode");
 
+console.log("jwtDecode:", jwtDecode);
+
 const isTokenExpired = (token) => {
   if (!token) return true;
 
