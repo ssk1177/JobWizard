@@ -8,7 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home/Home";
 import Login from './components/Login/Login';
-import jwtDecode from "jwt-decode";
+import * as jwtDecode from "jwt-decode";
 //import Logout from "./components/Logout/Logout";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Archive from "./components/Dashboard/Archive";
@@ -29,7 +29,7 @@ const isTokenExpired = (token) => {
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem("jwt");
 
-  
+
   const isAuthenticated = token && !isTokenExpired(token);
 
   return (
