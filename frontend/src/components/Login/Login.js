@@ -46,7 +46,12 @@ const Login = () => {
         if (response.status === 200) {
 
           const { jwtToken } = response.data;
-
+          console.log(
+            "token",
+            jwtToken,
+            ", response.data.jwtToken:",
+            response.data.jwtToken
+          );
           // Store the token in localStorage
           localStorage.setItem("jwt", jwtToken);
 

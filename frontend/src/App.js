@@ -28,6 +28,8 @@ const isTokenExpired = (token) => {
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem("jwt");
+
+  
   const isAuthenticated = token && !isTokenExpired(token);
 
   return (
