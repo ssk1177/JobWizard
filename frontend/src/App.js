@@ -8,7 +8,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home/Home";
 import Login from './components/Login/Login';
-import * as jwtDecode from "jwt-decode";
+//import * as jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 //import Logout from "./components/Logout/Logout";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Archive from "./components/Dashboard/Archive";
@@ -22,8 +23,16 @@ import './App.css';
 
 const isTokenExpired = (token) => {
   if (!token) return true;
-  const decoded = jwtDecode(token);
-  return decoded.exp < Date.now() / 1000;
+
+  try {
+    const decoded = jwtDecode(token);
+    // Assuming the token contains an 'exp' field in UNIX timestamp format
+    const currentTime = Date.now() / 1000; // Current time in seconds
+    return decoded.exp < currentTime; // Check if token is expired
+  } catch (error) {
+    console.error("Failed to decode token", error);
+    return true; // Consider token expired if decoding fails
+  }
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
