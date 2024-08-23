@@ -42,8 +42,14 @@ const Login = () => {
           username: username,
           password: password,
         });
-        console.log(response.data);
+
         if (response.status === 200) {
+
+          const token = response.data;
+
+          // Store the token in localStorage
+          localStorage.setItem("jwt", token);
+
           // Successful login
           navigate("/home"); // Redirect to the home page
         } else {
@@ -54,14 +60,13 @@ const Login = () => {
           //console.log("There was an error!", error.response.data.message);
             console.log("There was an error!", error);
 
-        setModalData(error.response.data.message);
+        setModalData(error.response.data.message ? error.response.data.message : "Login Failed, try Again or after sometime!");
         handleRegStatusShow();
       }
     };
 
     
     const handleChange = (e) => {
-      if (DEBUG) console.log("inside handle change, e:", e);
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
     };
@@ -70,14 +75,11 @@ const Login = () => {
       e.preventDefault();
 
       try {
-        if (DEBUG) console.log("Inside handleRegisterSubmit");
-
         const response = await axios.post(
           `${API_URL}/register`,
           formData
         );
-        console.log(response.data);
-        setModalData(response.data.message);
+        setModalData(response.data.message ? response.data.message : "Registration Successfull!!");
         handleRegisterClose();
         handleRegStatusShow();
       } catch (error) {

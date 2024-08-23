@@ -6,6 +6,8 @@ import EditIcon from "@mui/icons-material/Edit";
 
 const ProfileComponent = () => {
   const API_URL = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem("jwt");
+
   const [userImage, setUserImage] = useState(default_icon);
   const [isUploading, setIsUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,7 +18,12 @@ const ProfileComponent = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/get_user_profile`);
+        const response = await axios.get(`${API_URL}/get_user_profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         if (response.status === 200) {
           const { username, role, imageUrl } = response.data.data;
           setUsername(username);
@@ -59,7 +66,10 @@ const ProfileComponent = () => {
       setErrorMessage("");
 
       try {
-        const response = await axios.post(`${API_URL}/upload_image`, formData);
+        const response = await axios.post(`${API_URL}/upload_image`, {
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          }, formData});
         if (response.data.status === 200) {
           setUserImage(response.data.imageUrl);
           console.log(

@@ -18,6 +18,7 @@ const ScanResume = ({ show, handleClose }) => {
   const jobDescriptionRef = useRef(null);
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem("jwt");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -53,7 +54,10 @@ const ScanResume = ({ show, handleClose }) => {
     console.log("formData:", formData)
     fetch(`${API_URL}/scan_resume`, {
       method: "POST",
-      body: formData
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => response.json())
       .then((respdata) => {

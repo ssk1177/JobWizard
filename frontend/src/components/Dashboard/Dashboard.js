@@ -7,11 +7,20 @@ import "./Dashboard.css"
 
 const JobDashboard = () => {
   const API_URL = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem("jwt");
   const [jobId, setJobId] = useState(null);
 
   const fetchJobs = async () => {
     try {
-      const response = await fetch(`${API_URL}/fetch_jobs`, { method: "POST" });
+      const response = await fetch(
+        `${API_URL}/fetch_jobs`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.ok) {
         alert("Jobs added successfully to the database!");
       } else {

@@ -11,6 +11,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 
 const ScanResumeResult = ({ route, navigation }) => {
   const API_URL = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem("jwt");
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [matchScore, setMatchScore] = useState("");
@@ -40,7 +41,11 @@ const ScanResumeResult = ({ route, navigation }) => {
 
 
   useEffect(() => {
-    fetch(`${API_URL}/results/`+temp_data_id)
+    fetch(`${API_URL}/results/`+temp_data_id, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
       .then((response) => response.json())
       .then((data) => {
         if(data.status === 200) {

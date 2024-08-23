@@ -11,6 +11,8 @@ import Layout from "../Layout";
 
 const Profile = () => {
   const API_URL = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem("jwt");
+
   const [activeTab, setActiveTab] = useState("personalInformation");
   const [userData, setUserData] = useState({});
   const [notificationsData, setNotificationsData] = useState({});
@@ -40,7 +42,11 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/get_profile`);
+        const response = await axios.get(`${API_URL}/get_profile`, {
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+        });
         const data = response.data;
 
         console.log("data:", data);
@@ -114,6 +120,7 @@ const Profile = () => {
 
       const response = await axios.post(`${API_URL}/update_profile`, formData, {
         headers: {
+          "Authorization": `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       });

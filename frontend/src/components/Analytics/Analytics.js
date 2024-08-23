@@ -20,9 +20,14 @@ import {
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 const API_URL = process.env.REACT_APP_API_URL;
+const token = localStorage.getItem("jwt");
 
 const fetchData = async () => {
-  const response = await axios.get(`${API_URL}/analytics/data`);
+  const response = await axios.get(`${API_URL}/analytics/data`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
 

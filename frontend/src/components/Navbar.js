@@ -10,6 +10,7 @@ import axios from "axios";
 
 const Navbar = () => {
   const API_URL = process.env.REACT_APP_API_URL;
+  const token = localStorage.getItem("jwt");
 
   const [showScanResumeModal, setShowScanResumeModal] = useState(false);
 
@@ -21,9 +22,14 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       // Call the logout endpoint on the backend
-      const response = await axios.post(`${API_URL}/logout`);
+      const response = await axios.post(`${API_URL}/logout`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        },
+      });
 
       if (response.status === 200) {
+        localStorage.removeItem("jwt");
         // Redirect to the login page
         navigate("/");
       }
