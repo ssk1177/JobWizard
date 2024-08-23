@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home/Home";
@@ -36,7 +36,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
+        isAuthenticated ? <Component {...props} /> : <Navigate to="/login" />
       }
     />
   );
