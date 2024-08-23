@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home/Home";
 import Login from './components/Login/Login';
 //import * as jwtDecode from "jwt-decode";
-import jwtDecode from "jwt-decode";
+//import jwtDecode from "jwt-decode";
 //import Logout from "./components/Logout/Logout";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Archive from "./components/Dashboard/Archive";
@@ -20,6 +20,9 @@ import ScanResume from "./components/ScanResume/ScanResume"
 import ScanResumeResult from "./components/ScanResume/ScanResumeResult";
 //import "./pdfWorker";
 import './App.css';
+
+// Import jwt-decode using CommonJS
+const jwtDecode = require('jwt-decode');
 
 const isTokenExpired = (token) => {
   if (!token) return true;
