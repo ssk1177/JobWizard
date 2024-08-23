@@ -45,10 +45,10 @@ const Login = () => {
 
         if (response.status === 200) {
 
-          const token = response.data;
+          const { jwtToken } = response.data;
 
           // Store the token in localStorage
-          localStorage.setItem("jwt", token);
+          localStorage.setItem("jwt", jwtToken);
 
           // Successful login
           navigate("/home"); // Redirect to the home page
@@ -56,11 +56,7 @@ const Login = () => {
           setError("Invalid credentials");
         }
       } catch (error) {
-        if (DEBUG)
-          //console.log("There was an error!", error.response.data.message);
-            console.log("There was an error!", error);
-
-        setModalData(error.response.data.message ? error.response.data.message : "Login Failed, try Again or after sometime!");
+        setModalData("Login Failed, try Again or after sometime!");
         handleRegStatusShow();
       }
     };
@@ -83,12 +79,9 @@ const Login = () => {
         handleRegisterClose();
         handleRegStatusShow();
       } catch (error) {
-        if (DEBUG)
-          console.log("There was an error!", error.response.data.message);
-            console.log("There was an error!", error);
         handleRegisterClose();
 
-        setModalData(error.response.data.message);
+        setModalData("Registration Failed!!");
         handleRegStatusShow();
       }
     };

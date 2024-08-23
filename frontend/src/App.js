@@ -1,8 +1,14 @@
 import React  from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Redirect,
+} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home/Home";
 import Login from './components/Login/Login';
+import jwtDecode from "jwt-decode";
 //import Logout from "./components/Logout/Logout";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Archive from "./components/Dashboard/Archive";
@@ -14,24 +20,39 @@ import ScanResumeResult from "./components/ScanResume/ScanResumeResult";
 //import "./pdfWorker";
 import './App.css';
 
+const isTokenExpired = (token) => {
+  if (!token) return true;
+  const decoded = jwtDecode(token);
+  return decoded.exp < Date.now() / 1000;
+};
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const token = localStorage.getItem("jwt");
+  const isAuthenticated = token && !isTokenExpired(token);
+
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
+  );
+};
+
 function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Archive" element={<Archive />} />
-          <Route path="/Analytics" element={<Analytics />} />
-          <Route path="/Settings" element={<Settings />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/ScanResume" element={<ScanResume />} />
-          <Route path="/ScanResumeResult" element={<ScanResumeResult />} />
-          {/* <Route exact path="/Logout" element={<Logout />} /> */}
-
-          <Route path="*" element={() => "404 Not Found"} />
-        </Routes>
+        <PrivateRoute path="/" component={Login} />
+        <PrivateRoute path="/Home" component={Home} />
+        <PrivateRoute path="/Dashboard" component={Dashboard} />
+        <PrivateRoute path="/Archive" component={Archive} />
+        <PrivateRoute path="/Analytics" component={Analytics} />
+        <PrivateRoute path="/Settings" component={Settings} />
+        <PrivateRoute path="/Profile" component={Profile} />
+        <PrivateRoute path="/ScanResume" component={ScanResume} />
+        <PrivateRoute path="/ScanResumeResult" component={ScanResumeResult} />
       </div>
     </Router>
   );
