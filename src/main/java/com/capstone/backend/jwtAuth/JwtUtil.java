@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.function.Function;
+import io.jsonwebtoken.security.Keys;
+import javax.crypto.SecretKey;
 
 @Component
 public class JwtUtil {
@@ -18,6 +20,10 @@ public class JwtUtil {
 
     @Value("${jwt.expiration}")
     private long expiration;
+    
+    private SecretKey getSecretKey() {
+        return Keys.hmacShaKeyFor(secret.getBytes());
+    }
 
     // Generate JWT token
     public String generateToken(UserDetails userDetails) {
@@ -25,7 +31,7 @@ public class JwtUtil {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(SignatureAlgorithm.HS256, secret)
+                .signWith(getSecretKey())
                 .compact();
     }
 
@@ -57,9 +63,16 @@ public class JwtUtil {
 
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
-                .setSigningKey(secret)
+                .setSigningKey(getSecretKey())
                 .parseClaimsJws(token)
                 .getBody();
+    }
+    public Claims parseClaims(String jwt) {
+        return Jwts.parserBuilder()
+            .setSigningKey(getSecretKey())
+            .build()
+            .parseClaimsJws(jwt)
+            .getBody();
     }
 }
 
