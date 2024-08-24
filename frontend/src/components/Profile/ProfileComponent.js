@@ -25,12 +25,12 @@ const ProfileComponent = () => {
         });
 
         if (response.status === 200) {
-          const { username, role, imageUrl } = response.data.data;
+          const { username, role, image } = response.data.data;
           setUsername(username);
           setUserRole(role);
-          // If imageUrl is available, use it; otherwise, keep the default image
-          if (imageUrl && imageUrl.trim() !== "") {
-            setUserImage(imageUrl);
+          // If image is available, use it; otherwise, keep the default image
+          if (image && image.trim() !== "") {
+            setUserImage(image);
           } else {
             setUserImage(default_icon); // Fallback to default image
           }
@@ -41,7 +41,7 @@ const ProfileComponent = () => {
     };
 
     fetchProfileData();
-  }, []);
+  }, [API_URL, token]);
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
@@ -73,17 +73,12 @@ const ProfileComponent = () => {
           },
         });
         if (response.data.status === 200) {
-          setUserImage(response.data.imageUrl);
-          console.log(
-            "response recived in upload_image:",
-            response.data.imageUrl
-          );
+          setUserImage(URL.createObjectURL(response.data.image));
         } else {
           showError("Error uploading image. Please try again.");
         }
       } catch (error) {
         showError("Error uploading image. Please try again.");
-        //console.error("Error uploading image:", error);
       } finally {
         setIsUploading(false);
       }

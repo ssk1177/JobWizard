@@ -42,8 +42,6 @@ public class ImageUploadService {
                 userDetailsRepository.save(userDetails);
 
                 response.put("status", 200);
-                response.put("image", file.getBytes());
-
             } catch (Exception e) {
                 response.put("status", 500);
                 response.put("message", e.getMessage());
