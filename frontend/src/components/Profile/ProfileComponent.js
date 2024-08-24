@@ -27,11 +27,14 @@ const ProfileComponent = () => {
 
         if (response.status === 200) {
           const image = URL.createObjectURL(new Blob([response.data]));
-          
+          console.log("response:", response.data);
+          console.log("image:", image);
           // If image is available, use it; otherwise, keep the default image
           if (image && image.trim() !== "") {
+            console.log("setting image:", image);
             setUserImage(image);
           } else {
+            console.log("setting default image:");
             setUserImage(default_icon); // Fallback to default image
           }
         }
