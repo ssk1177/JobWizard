@@ -170,12 +170,9 @@ public class ProfileService {
             userData.put("role", userDetails.getRole() != null ? userDetails.getRole() : "");
 
             if (userDetails != null && userDetails.getProfilePic() != null) {
-                try {
-                    byte[] decompressedImageData = decompress(userDetails.getProfilePic());
-                    userData.put("image", decompressedImageData);
-                } catch (DataFormatException e) {
-                    throw new RuntimeException("Error decompressing image data", e);
-                }
+                    //byte[] decompressedImageData = decompress(userDetails.getProfilePic());
+            	userData.put("image", userDetails.getProfilePic());
+                
             } else {
                 userData.put("image", null);
             }
