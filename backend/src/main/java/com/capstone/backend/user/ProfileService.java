@@ -150,7 +150,7 @@ public class ProfileService {
         response.put("user_info", userInfo);
         response.put("address", addressInfo);
         response.put("documents", documentsList);
-        response.put("notification_settings", notificationInfo);
+        response.put("notifications", notificationInfo);
         response.put("settings", settingsInfo);        
 
         return response;
@@ -271,19 +271,19 @@ public class ProfileService {
             }
 
             // Update notification settings
-            if (formData.containsKey("notification_settings")) {
-                Map<String, Object> notificationSettingsData = objectMapper.readValue(formData.get("notification_settings"), Map.class);
+            if (formData.containsKey("notifications")) {
+                Map<String, Object> notificationSettingsData = objectMapper.readValue(formData.get("notifications"), Map.class);
 
                 Notifications notificationSettings = notificationsRepository.findByUserName(username);
                 if (notificationSettings == null) {
                     notificationSettings = new Notifications(username, 
                     		(Boolean) notificationSettingsData.get("receive_email_alerts"),
                     		(Boolean) notificationSettingsData.get("job_match_alerts"),
-                    		(Boolean) notificationSettingsData.get("sms_application_status_updates"),
+                    		(Boolean) notificationSettingsData.get("application_status_updates"),
                     		(Boolean) notificationSettingsData.get("newsletter_subscription"),
                     		(Boolean) notificationSettingsData.get("receive_sms_alerts"),
                     		(Boolean) notificationSettingsData.get("sms_job_match_alerts"),
-                    		(Boolean) notificationSettingsData.get("application_status_updates"),
+                    		(Boolean) notificationSettingsData.get("sms_application_status_updates"),
                     		(Boolean) notificationSettingsData.get("enable_push_notifications"),
                     		(Boolean) notificationSettingsData.get("push_job_match_alerts"),
                     		(Boolean) notificationSettingsData.get("push_application_status_updates"),
@@ -331,8 +331,4 @@ public class ProfileService {
         }
     }
 
-    // Utility method to capitalize the first letter
-    private String capitalize(String str) {
-        return Character.toUpperCase(str.charAt(0)) + str.substring(1);
-    }
 }

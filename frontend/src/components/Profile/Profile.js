@@ -56,7 +56,7 @@ const Profile = () => {
           if (data.address) setAddressData(data.address);
           if (data.documents) setDocumentData(data.documents);
           if (data.notification_settings)
-            setNotificationsData(data.notification_settings);
+            setNotificationsData(data.notifications);
           if (data.settings) setSettingsData(data.settings);
         }
       } catch (error) {
@@ -101,7 +101,7 @@ const Profile = () => {
     formData.append("user_info", JSON.stringify(userData));
     formData.append("address", JSON.stringify(addressData));
     formData.append("settings", JSON.stringify(settingsData));
-    formData.append("notification_settings", JSON.stringify(notificationsData));
+    formData.append("notifications", JSON.stringify(notificationsData));
 
     console.log("notificationsData:", notificationsData);
     //Append document files separately
