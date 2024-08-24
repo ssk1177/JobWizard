@@ -63,6 +63,33 @@ public class Notifications {
 	@Column(name = "endTime")
     private String endTime;
 
+	public Notifications() {
+		super();
+	}
+
+	public Notifications(String userName, Boolean receiveEmailAlerts, Boolean jobMatchAlerts,
+			Boolean applicationStatusUpdates, Boolean newsletterSubscription, Boolean receiveSmsAlerts,
+			Boolean smsJobMatchAlerts, Boolean smsApplicationStatusUpdates, Boolean enablePushNotifications,
+			Boolean pushJobMatchAlerts, Boolean pushApplicationStatusUpdates, String frequency, Boolean doNotDisturb,
+			String startTime, String endTime) {
+		super();
+		this.userName = userName;
+		this.receiveEmailAlerts = receiveEmailAlerts;
+		this.jobMatchAlerts = jobMatchAlerts;
+		this.applicationStatusUpdates = applicationStatusUpdates;
+		this.newsletterSubscription = newsletterSubscription;
+		this.receiveSmsAlerts = receiveSmsAlerts;
+		this.smsJobMatchAlerts = smsJobMatchAlerts;
+		this.smsApplicationStatusUpdates = smsApplicationStatusUpdates;
+		this.enablePushNotifications = enablePushNotifications;
+		this.pushJobMatchAlerts = pushJobMatchAlerts;
+		this.pushApplicationStatusUpdates = pushApplicationStatusUpdates;
+		this.frequency = frequency;
+		this.doNotDisturb = doNotDisturb;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+
 	public Long getId() {
 		return Id;
 	}
