@@ -27,14 +27,13 @@ public class UserController {
 	private ProfileService profileService;
 	
 	@Autowired
-    private ImageUploadService imageUploadService;
+    private ImageService imageService;
 	
-	@GetMapping("/get_profile")
-    public ResponseEntity<Map<String, Object>> getProfile() {
+	@GetMapping("/get_image")
+    public ResponseEntity<?> getImage() {
         try {
         	System.out.print("Entering getProfile...");
-            Map<String, Object> profile = profileService.getProfile();
-            return ResponseEntity.ok(profile);
+            return imageService.getImage();
         } catch (Exception e) {
             // Log error and return error response
             // Use logger in actual implementation
@@ -44,22 +43,22 @@ public class UserController {
         }
     }
 	
-	@GetMapping("/get_user_profile")
-    @PreAuthorize("isAuthenticated()")  // Spring Security annotation for login required
-    public ResponseEntity<Map<String, Object>> getUserProfile() {
-        try {
-            Map<String, Object> profileData = profileService.getUserProfile();
-            return new ResponseEntity<>(profileData, HttpStatus.OK);
-        } catch (Exception e) {
-            // Log error and return error response
-            // Use logger in actual implementation
-            System.err.println("Error fetching profile data: " + e.getMessage());
-            Map<String, Object> errorResponse = new HashMap<>();
-            errorResponse.put("status", 500);
-            errorResponse.put("message", "Exception raised in backend:get_user_profile"+e);
-            return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//	@GetMapping("/get_user_profile")
+//    @PreAuthorize("isAuthenticated()")  // Spring Security annotation for login required
+//    public ResponseEntity<Map<String, Object>> getUserProfile() {
+//        try {
+//            Map<String, Object> profileData = profileService.getUserProfile();
+//            return new ResponseEntity<>(profileData, HttpStatus.OK);
+//        } catch (Exception e) {
+//            // Log error and return error response
+//            // Use logger in actual implementation
+//            System.err.println("Error fetching profile data: " + e.getMessage());
+//            Map<String, Object> errorResponse = new HashMap<>();
+//            errorResponse.put("status", 500);
+//            errorResponse.put("message", "Exception raised in backend:get_user_profile"+e);
+//            return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 	
 	@PostMapping("/upload_image")
     public ResponseEntity<Map<String, Object>> uploadImage(@RequestParam("image") MultipartFile file) {
@@ -78,7 +77,7 @@ public class UserController {
         
         System.out.println("Entering  Usercontroller.uploadImage, file exist ");
 
-        Map<String, Object> response = imageUploadService.uploadImage(file);
+        Map<String, Object> response = imageService.uploadImage(file);
         HttpStatus status = response.get("status").equals(200) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
         return new ResponseEntity<>(response, status);
     }

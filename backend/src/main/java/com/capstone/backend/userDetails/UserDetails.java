@@ -38,6 +38,12 @@ public class UserDetails {
     @Column(name = "role", length = 50)
     private String role;
 
+    @Column(name = "profilePicName")
+    private String profilePicName;
+
+    @Column(name = "profilePicType")
+    private String profilePicType;
+
     @Lob
     @Column(name = "profilePic", columnDefinition="MEDIUMBLOB")
     private byte[] profilePic;
@@ -53,6 +59,22 @@ public class UserDetails {
 		this.userName = userName;
 		this.email = email;
 		this.updatedOn = LocalDateTime.now();
+	}
+
+	public String getProfilePicName() {
+		return profilePicName;
+	}
+
+	public void setProfilePicName(String profilePicName) {
+		this.profilePicName = profilePicName;
+	}
+
+	public String getProfilePicType() {
+		return profilePicType;
+	}
+
+	public void setProfilePicType(String profilePicType) {
+		this.profilePicType = profilePicType;
 	}
 
 	// Getters and setters
