@@ -44,11 +44,10 @@ public class UserController {
     }
 	
 	@GetMapping("/get_profile")
-    public ResponseEntity<Map<String, Object>> getProfile() {
+    public ResponseEntity<?> getProfile() {
         try {
         	System.out.print("Entering getProfile...");
-        	Map<String, Object> profile = profileService.getProfile();
-            return ResponseEntity.ok(profile);
+            return profileService.getProfile();
         } catch (Exception e) {
             // Log error and return error response
             // Use logger in actual implementation
