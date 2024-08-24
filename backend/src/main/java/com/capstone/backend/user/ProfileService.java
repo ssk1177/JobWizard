@@ -120,21 +120,23 @@ public class ProfileService {
 
         // Fetch notification settings
         Notifications notificationSettings = notificationsRepository.findByUserName(username);
-        Map<String, Object> notificationInfo = new HashMap<>();
-        notificationInfo.put("receive_email_alerts", notificationSettings != null ? notificationSettings.getReceiveEmailAlerts() : false);
-        notificationInfo.put("job_match_alerts", notificationSettings != null ? notificationSettings.getJobMatchAlerts() : false);
-        notificationInfo.put("application_status_updates", notificationSettings != null ? notificationSettings.getApplicationStatusUpdates() : false);
-        notificationInfo.put("newsletter_subscription", notificationSettings != null ? notificationSettings.getNewsletterSubscription() : false);
-        notificationInfo.put("receive_sms_alerts", notificationSettings != null ? notificationSettings.getReceiveSmsAlerts() : false);
-        notificationInfo.put("sms_job_match_alerts", notificationSettings != null ? notificationSettings.getSmsJobMatchAlerts() : false);
-        notificationInfo.put("sms_application_status_updates", notificationSettings != null ? notificationSettings.getSmsApplicationStatusUpdates() : false);
-        notificationInfo.put("enable_push_notifications", notificationSettings != null ? notificationSettings.getEnablePushNotifications() : false);
-        notificationInfo.put("push_job_match_alerts", notificationSettings != null ? notificationSettings.getPushJobMatchAlerts() : false);
-        notificationInfo.put("push_application_status_updates", notificationSettings != null ? notificationSettings.getPushApplicationStatusUpdates() : false);
-        notificationInfo.put("frequency", notificationSettings != null ? notificationSettings.getFrequency() : "");
-        notificationInfo.put("do_not_disturb", notificationSettings != null ? notificationSettings.getDoNotDisturb() : false);
-        notificationInfo.put("start_time", notificationSettings != null ? notificationSettings.getStartTime() : "");
-        notificationInfo.put("end_time", notificationSettings != null ? notificationSettings.getEndTime() : "");
+        	Map<String, Object> notificationInfo = new HashMap<>();
+        if(notificationSettings != null) {
+	        notificationInfo.put("receive_email_alerts", notificationSettings.getReceiveEmailAlerts() != null ? notificationSettings.getReceiveEmailAlerts() : false);
+	        notificationInfo.put("job_match_alerts", notificationSettings.getJobMatchAlerts() != null ? notificationSettings.getJobMatchAlerts() : false);
+	        notificationInfo.put("application_status_updates", notificationSettings.getApplicationStatusUpdates() != null ? notificationSettings.getApplicationStatusUpdates() : false);
+	        notificationInfo.put("newsletter_subscription", notificationSettings.getNewsletterSubscription() != null ? notificationSettings.getNewsletterSubscription() : false);
+	        notificationInfo.put("receive_sms_alerts", notificationSettings.getReceiveSmsAlerts() != null ? notificationSettings.getReceiveSmsAlerts() : false);
+	        notificationInfo.put("sms_job_match_alerts", notificationSettings.getSmsJobMatchAlerts() != null ? notificationSettings.getSmsJobMatchAlerts() : false);
+	        notificationInfo.put("sms_application_status_updates", notificationSettings.getSmsApplicationStatusUpdates() != null ? notificationSettings.getSmsApplicationStatusUpdates() : false);
+	        notificationInfo.put("enable_push_notifications", notificationSettings.getEnablePushNotifications() != null ? notificationSettings.getEnablePushNotifications() : false);
+	        notificationInfo.put("push_job_match_alerts", notificationSettings.getPushJobMatchAlerts() != null ? notificationSettings.getPushJobMatchAlerts() : false);
+	        notificationInfo.put("push_application_status_updates", notificationSettings.getPushApplicationStatusUpdates() != null ? notificationSettings.getPushApplicationStatusUpdates() : false);
+	        notificationInfo.put("frequency", notificationSettings.getFrequency() != null ? notificationSettings.getFrequency() : "");
+	        notificationInfo.put("do_not_disturb", notificationSettings.getDoNotDisturb() != null ? notificationSettings.getDoNotDisturb() : false);
+	        notificationInfo.put("start_time", notificationSettings.getStartTime() != null ? notificationSettings.getStartTime() : "");
+	        notificationInfo.put("end_time", notificationSettings.getEndTime() != null ? notificationSettings.getEndTime() : "");
+        }
 
         // Fetch settings
         Settings settings = settingsRepository.findByUserName(username);
@@ -274,18 +276,23 @@ public class ProfileService {
 
                 Notifications notificationSettings = notificationsRepository.findByUserName(username);
                 if (notificationSettings == null) {
-                    notificationSettings = new Notifications();
-                    notificationSettings.setUserName(username);
+                    notificationSettings = new Notifications(username, 
+                    		(Boolean) notificationSettingsData.get("receive_email_alerts"),
+                    		(Boolean) notificationSettingsData.get("job_match_alerts"),
+                    		(Boolean) notificationSettingsData.get("sms_application_status_updates"),
+                    		(Boolean) notificationSettingsData.get("newsletter_subscription"),
+                    		(Boolean) notificationSettingsData.get("receive_sms_alerts"),
+                    		(Boolean) notificationSettingsData.get("sms_job_match_alerts"),
+                    		(Boolean) notificationSettingsData.get("application_status_updates"),
+                    		(Boolean) notificationSettingsData.get("enable_push_notifications"),
+                    		(Boolean) notificationSettingsData.get("push_job_match_alerts"),
+                    		(Boolean) notificationSettingsData.get("push_application_status_updates"),
+                    		(String) notificationSettingsData.get("frequency"),
+                    		(Boolean) notificationSettingsData.get("do_not_disturb"),
+                    		(String) notificationSettingsData.get("start_time"),
+                    		(String) notificationSettingsData.get("end_time")
+                    		);
                 }
-
-//                notificationSettingsData.forEach((key, value) -> {
-//                    try {
-//                        notifications.getClass().getMethod("set" + capitalize(key), value.getClass()).invoke(notificationSettings, value);
-//                    } catch (Exception e) {
-//                        throw new RuntimeException("Error setting value in notification settings", e);
-//                    }
-//                });
-
                 notificationsRepository.save(notificationSettings);
             }
 

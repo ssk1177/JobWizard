@@ -44,14 +44,14 @@ const Profile = () => {
       try {
         const response = await axios.get(`${API_URL}/get_profile`, {
           headers: {
-            "Authorization": `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         const data = response.data;
 
         console.log("data:", data);
 
-        if(response.status === 200) {
+        if (response.status === 200) {
           if (data.user_info) setUserData(data.user_info);
           if (data.address) setAddressData(data.address);
           if (data.documents) setDocumentData(data.documents);
@@ -66,7 +66,7 @@ const Profile = () => {
     };
 
     fetchProfileData();
-  }, []);
+  }, [API_URL, token]);
 
   const renderTabContent = () => {
     switch (activeTab) {
