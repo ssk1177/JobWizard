@@ -22,33 +22,48 @@ public class ImageUploadService {
 
     @Autowired
     private UserDetailsRepository userDetailsRepository;
+    
+    @Autowired
+    private ProfileService profileService;
 
-    public Map<String, Object> uploadImage(MultipartFile file, Long userId) {
+    public Map<String, Object> uploadImage(MultipartFile file) {
         Map<String, Object> response = new HashMap<>();
-        Optional<User> userOptional = userRepository.findById(userId);
+        
+        String username = profileService.getUserName();
+        
+        System.out.println("Entering  uploadImage, username: "+username);
 
-        if (userOptional.isPresent()) {
             try {
-                User user = userOptional.get();
-                UserDetails userDetails = userDetailsRepository.findByUserName(user.getUsername());
+
+                UserDetails userDetails = userDetailsRepository.findByUserName(username);
                         //.orElse(new UserDetails(userId, null, null));
-
-                // Compress the image data
-                byte[] compressedImageData = compressImage(file);
-
-                userDetails.setProfilePic(compressedImageData);
+                
+                userDetails.setProfilePic(file.getBytes());
                 userDetailsRepository.save(userDetails);
+                
+//                System.out.println("Entering  uploadImage, userDetails: "+userDetails);
+//                // Compress the image data
+//                byte[] compressedImageData = compressImage(file);
+//
+//                System.out.println("Entering  uploadImage..1");
+//                
+//                userDetails.setProfilePic(compressedImageData);
+//                
+//                System.out.println("Entering  uploadImage..2");
+//                
+//                userDetailsRepository.save(userDetails);
+//                
+//                System.out.println("Entering  uploadImage..3");
 
                 response.put("status", 200);
                 response.put("imageUrl", "/get_image");
+//                
+//                System.out.println("Exiting  uploadImage");
             } catch (Exception e) {
                 response.put("status", 500);
                 response.put("message", e.getMessage());
             }
-        } else {
-            response.put("status", 404);
-            response.put("message", "User not found");
-        }
+        
 
         return response;
     }

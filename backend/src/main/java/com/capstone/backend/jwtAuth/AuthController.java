@@ -37,27 +37,36 @@ public class AuthController {
 
     
     @PostMapping("/register")
-    public String registerUser(@RequestBody RegisterRequest registerRequest) {
-        // Check if the username or email already exists
-        if (userRepository.existsByUserName(registerRequest.getUsername())) {
-            throw new RuntimeException("Username already taken");
-        }
-        
-        // Create a new user entity
-        User user = new User();
-        user.setusername(registerRequest.getUsername());
-        
-        // Hash the password before saving
-        user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        
-        user.setEmail(registerRequest.getEmail());
-        // Save the user to the database
-        User addedUser = userRepository.save(user);
-        
-        /* Create Entry in User_details */
-        userDetailsService.createUser(addedUser);
-        
-        return "User registered successfully";
+    public ResponseEntity<?> registerUser(@RequestBody RegisterRequest registerRequest) throws Exception {
+    	String message = "";
+    	try {
+	        // Check if the username or email already exists
+	        if (userRepository.existsByUserName(registerRequest.getUsername())) {
+	            //throw new Exception("Username already taken");
+	            message = "Username already taken";
+	        } else {
+	        
+		        // Create a new user entity
+		        User user = new User();
+		        user.setusername(registerRequest.getUsername());
+		        
+		        // Hash the password before saving
+		        user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+		        
+		        user.setEmail(registerRequest.getEmail());
+		        // Save the user to the database
+		        User addedUser = userRepository.save(user);
+		        
+		        /* Create Entry in User_details */
+		        userDetailsService.createUser(addedUser);
+		        
+		        message = "User registered successfully";
+	        }
+    	} catch(Exception ex) {
+    		
+    		throw new Exception("user registration failed", ex);
+    	}
+    	return ResponseEntity.ok().body(message);
     }
 
     @PostMapping("/login")

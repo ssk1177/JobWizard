@@ -2571,3 +2571,397 @@
 2024-08-23 20:21:04,141 [Worker-331: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
 2024-08-23 20:21:04,191 [Worker-331: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
 2024-08-23 20:21:04,194 [Worker-331: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 20:32:00,151 [Worker-329: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 20:32:00,220 [Worker-329: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 20:32:00,230 [Worker-329: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 20:34:04,270 [Worker-329: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 20:34:04,643 [Worker-329: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 20:34:04,682 [Worker-329: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 20:38:25,894 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 20:38:25,953 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 20:38:25,957 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 20:40:30,810 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 20:40:30,952 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 20:40:30,975 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 20:44:46,682 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 20:44:46,920 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 20:44:46,933 [Worker-339: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 20:45:39,565 [Worker-340: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 20:45:39,715 [Worker-340: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 20:45:39,730 [Worker-340: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:26:53,131 [Worker-347: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:27:37,104 [Worker-345: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-08-23 22:27:38,273 [Worker-345: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:27:38,809 [Worker-345: Updating Maven Project] ERROR o.e.m.c.i.p.ProjectConfigurationManager - Could not read maven project
+org.eclipse.core.runtime.CoreException: Could not read maven project
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:371)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readProject(MavenImpl.java:361)
+	at org.eclipse.m2e.mavenarchiver.internal.AbstractMavenArchiverConfigurator.lambda$4(AbstractMavenArchiverConfigurator.java:576)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.mavenarchiver.internal.AbstractMavenArchiverConfigurator.loadParentHierarchy(AbstractMavenArchiverConfigurator.java:568)
+	at org.eclipse.m2e.mavenarchiver.internal.AbstractMavenArchiverConfigurator.generateManifest(AbstractMavenArchiverConfigurator.java:365)
+	at org.eclipse.m2e.mavenarchiver.internal.AbstractMavenArchiverConfigurator.mavenProjectChanged(AbstractMavenArchiverConfigurator.java:228)
+	at org.eclipse.m2e.mavenarchiver.internal.AbstractMavenArchiverConfigurator.mavenProjectChanged(AbstractMavenArchiverConfigurator.java:220)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.mavenProjectChanged(ProjectConfigurationManager.java:885)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:892)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:1042)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:324)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration0(ProjectConfigurationManager.java:388)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$3(ProjectConfigurationManager.java:340)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1053)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:339)
+	at org.eclipse.m2e.core.ui.internal.UpdateMavenProjectJob.runInWorkspace(UpdateMavenProjectJob.java:80)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM /Users/surendrasingh/Documents/JobWizard/backend: /Users/surendrasingh/Documents/JobWizard/backend (Is a directory) @ 
+ for project  at /Users/surendrasingh/Documents/JobWizard/backend
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:180)
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:123)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:369)
+	... 25 common frames omitted
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM /Users/surendrasingh/Documents/JobWizard/backend: /Users/surendrasingh/Documents/JobWizard/backend (Is a directory) @ 
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:176)
+	at org.apache.maven.model.building.DefaultModelBuilder.readModel(DefaultModelBuilder.java:643)
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:263)
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:249)
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:176)
+	... 27 common frames omitted
+2024-08-23 22:27:39,253 [Worker-345: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/main/resources
+2024-08-23 22:27:39,255 [Worker-345: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/main/resources
+2024-08-23 22:27:39,256 [Worker-345: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/test/resources
+2024-08-23 22:27:39,617 [Worker-345: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 0.00 sec 
+2024-08-23 22:28:19,982 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [294])
+2024-08-23 22:28:20,043 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-23 22:28:20,054 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/aopalliance-1.0.jar
+2024-08-23 22:28:20,055 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/guice-5.1.0.jar
+2024-08-23 22:28:20,055 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/httpclient-4.5.14.jar
+2024-08-23 22:28:20,055 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/httpcore-4.4.16.jar
+2024-08-23 22:28:20,055 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/jansi-2.4.1.jar
+2024-08-23 22:28:20,055 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/jcl-over-slf4j-1.7.36.jar
+2024-08-23 22:28:20,055 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-artifact-3.9.7.jar
+2024-08-23 22:28:20,056 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-builder-support-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-compat-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-core-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-embedder-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-model-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-model-builder-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-plugin-api-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-repository-metadata-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-api-1.9.20.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-connector-basic-1.9.20.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-impl-1.9.20.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-named-locks-1.9.20.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-provider-3.9.7.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-spi-1.9.20.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-file-1.9.20.jar
+2024-08-23 22:28:20,057 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-http-1.9.20.jar
+2024-08-23 22:28:20,058 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-wagon-1.9.20.jar
+2024-08-23 22:28:20,058 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-util-1.9.20.jar
+2024-08-23 22:28:20,058 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-settings-3.9.7.jar
+2024-08-23 22:28:20,058 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-settings-builder-3.9.7.jar
+2024-08-23 22:28:20,069 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-shared-utils-3.4.2.jar
+2024-08-23 22:28:20,070 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-23 22:28:20,071 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-23 22:28:20,071 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-build-api-0.0.7.jar
+2024-08-23 22:28:20,073 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-build-api-1.2.0.jar
+2024-08-23 22:28:20,073 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-cipher-2.0.jar
+2024-08-23 22:28:20,073 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-classworlds-2.8.0.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-component-annotations-2.1.0.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-interpolation-1.27.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-sec-dispatcher-2.0.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-utils-3.5.1.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-file-3.5.3.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-http-3.5.3.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-http-shared-3.5.3.jar
+2024-08-23 22:28:20,074 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-provider-api-3.5.3.jar
+2024-08-23 22:28:20,081 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [10])
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/com.google.guava_33.2.0.jre.jar
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.13 [515])
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/slf4j.api_2.0.13.jar
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [21])
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [24])
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [47])
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.cli_1.8.0.jar
+2024-08-23 22:28:20,082 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [48])
+2024-08-23 22:28:20,085 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.commons-codec_1.16.0.jar
+2024-08-23 22:28:20,085 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [54])
+2024-08-23 22:28:20,085 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.lang3_3.14.0.jar
+2024-08-23 22:28:20,085 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [11])
+2024-08-23 22:28:20,085 [Worker-349: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/com.google.guava.failureaccess_1.0.2.jar
+2024-08-23 22:28:20,120 [Worker-349: Launching New_configuration] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "/Users/surendrasingh/Documents/JobWizard/backend":
+2024-08-23 22:28:20,123 [Worker-349: Launching New_configuration] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always clean install
+2024-08-23 22:30:13,213 [Worker-351: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:30:14,578 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:30:14,582 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:30:14,606 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:30:25,232 [Worker-348: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-08-23 22:30:25,866 [Worker-348: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:30:26,426 [Worker-348: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /backend/src/main/java
+2024-08-23 22:30:26,427 [Worker-348: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/main/resources
+2024-08-23 22:30:26,427 [Worker-348: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/main/resources
+2024-08-23 22:30:26,427 [Worker-348: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /backend/src/test/java
+2024-08-23 22:30:26,427 [Worker-348: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/test/resources
+2024-08-23 22:30:27,031 [Worker-348: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 0.00 sec 
+2024-08-23 22:30:29,132 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:30:29,346 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:30:29,370 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:31:19,207 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [294])
+2024-08-23 22:31:19,213 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-23 22:31:19,213 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/aopalliance-1.0.jar
+2024-08-23 22:31:19,213 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/guice-5.1.0.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/httpclient-4.5.14.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/httpcore-4.4.16.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/jansi-2.4.1.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/jcl-over-slf4j-1.7.36.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-artifact-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-builder-support-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-compat-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-core-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-embedder-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-model-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-model-builder-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-plugin-api-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-repository-metadata-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-api-1.9.20.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-connector-basic-1.9.20.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-impl-1.9.20.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-named-locks-1.9.20.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-provider-3.9.7.jar
+2024-08-23 22:31:19,214 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-spi-1.9.20.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-file-1.9.20.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-http-1.9.20.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-wagon-1.9.20.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-util-1.9.20.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-settings-3.9.7.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-settings-builder-3.9.7.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-shared-utils-3.4.2.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-build-api-0.0.7.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-build-api-1.2.0.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-cipher-2.0.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-classworlds-2.8.0.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-component-annotations-2.1.0.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-interpolation-1.27.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-sec-dispatcher-2.0.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-utils-3.5.1.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-file-3.5.3.jar
+2024-08-23 22:31:19,215 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-http-3.5.3.jar
+2024-08-23 22:31:19,216 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-http-shared-3.5.3.jar
+2024-08-23 22:31:19,216 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-provider-api-3.5.3.jar
+2024-08-23 22:31:19,216 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [10])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/com.google.guava_33.2.0.jre.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.13 [515])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/slf4j.api_2.0.13.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [21])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [24])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [47])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.cli_1.8.0.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [48])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.commons-codec_1.16.0.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [54])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.lang3_3.14.0.jar
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [11])
+2024-08-23 22:31:19,217 [Worker-352: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/com.google.guava.failureaccess_1.0.2.jar
+2024-08-23 22:31:19,222 [Worker-352: Launching New_configuration] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "/Users/surendrasingh/Documents/JobWizard/backend":
+2024-08-23 22:31:19,224 [Worker-352: Launching New_configuration] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always clean install
+2024-08-23 22:31:46,650 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:31:46,763 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:31:46,772 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:36:26,832 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:36:26,950 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:36:26,957 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:36:50,298 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:36:50,373 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:36:50,393 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:37:04,456 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:37:04,519 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:37:04,527 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:37:40,524 [Worker-353: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:37:40,605 [Worker-353: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:37:40,615 [Worker-353: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:37:59,633 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:37:59,683 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:37:59,688 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:38:12,114 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:38:12,193 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:38:12,197 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:41:30,951 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:41:31,026 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:41:31,054 [Worker-352: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:41:47,131 [Worker-347: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:41:47,268 [Worker-347: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:41:47,273 [Worker-347: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:42:54,569 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:42:54,624 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:42:54,627 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:43:01,068 [Worker-347: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:43:01,129 [Worker-347: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:43:01,135 [Worker-347: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:43:16,626 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:43:16,678 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:43:16,687 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:45:41,167 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:45:41,229 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:45:41,233 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:45:46,521 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:45:46,582 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:45:46,586 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:46:45,710 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:46:45,849 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:46:45,900 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:46:48,445 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:46:48,507 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:46:48,511 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:47:37,171 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:47:37,245 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:47:37,251 [Worker-349: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:48:40,297 [Worker-348: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:48:42,729 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.pom
+2024-08-23 22:48:42,779 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.pom
+2024-08-23 22:48:42,848 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.15.2/jackson-base-2.15.2.pom
+2024-08-23 22:48:42,861 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.15.2/jackson-base-2.15.2.pom
+2024-08-23 22:48:42,914 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.15.2/jackson-bom-2.15.2.pom
+2024-08-23 22:48:42,922 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.15.2/jackson-bom-2.15.2.pom
+2024-08-23 22:48:42,994 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.15/jackson-parent-2.15.pom
+2024-08-23 22:48:42,999 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.15/jackson-parent-2.15.pom
+2024-08-23 22:48:43,045 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/50/oss-parent-50.pom
+2024-08-23 22:48:43,056 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/50/oss-parent-50.pom
+2024-08-23 22:48:43,108 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.2/junit-bom-5.9.2.pom
+2024-08-23 22:48:43,110 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.9.2/junit-bom-5.9.2.pom
+2024-08-23 22:48:43,265 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar
+2024-08-23 22:48:43,450 [Worker-348: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar
+2024-08-23 22:48:43,887 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:48:43,888 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:48:43,898 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:48:45,361 [Worker-353: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2-sources.jar
+2024-08-23 22:48:45,637 [Worker-353: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2-sources.jar
+2024-08-23 22:48:45,673 [Worker-353: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.fasterxml.jackson.core:jackson-databind:2.15.2
+2024-08-23 22:48:47,543 [Worker-355: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:48:47,650 [Worker-355: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:48:47,660 [Worker-355: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:48:57,266 [Worker-349: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-08-23 22:48:57,877 [Worker-349: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:48:58,372 [Worker-349: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /backend/src/main/java
+2024-08-23 22:48:58,373 [Worker-349: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/main/resources
+2024-08-23 22:48:58,374 [Worker-349: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/main/resources
+2024-08-23 22:48:58,374 [Worker-349: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /backend/src/test/java
+2024-08-23 22:48:58,375 [Worker-349: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /backend/src/test/resources
+2024-08-23 22:48:58,617 [Worker-349: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 1.00 sec, update config takes 0.00 sec 
+2024-08-23 22:48:58,976 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:48:59,000 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:48:59,005 [Worker-351: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:49:11,115 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [294])
+2024-08-23 22:49:11,122 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-23 22:49:11,125 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/aopalliance-1.0.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/guice-5.1.0.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/httpclient-4.5.14.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/httpcore-4.4.16.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/jansi-2.4.1.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/jcl-over-slf4j-1.7.36.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-artifact-3.9.7.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-builder-support-3.9.7.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-compat-3.9.7.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-core-3.9.7.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-embedder-3.9.7.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-model-3.9.7.jar
+2024-08-23 22:49:11,127 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-model-builder-3.9.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-plugin-api-3.9.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-repository-metadata-3.9.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-api-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-connector-basic-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-impl-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-named-locks-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-provider-3.9.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-spi-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-file-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-http-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-transport-wagon-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-resolver-util-1.9.20.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-settings-3.9.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-settings-builder-3.9.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/maven-shared-utils-3.4.2.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-build-api-0.0.7.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-build-api-1.2.0.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-cipher-2.0.jar
+2024-08-23 22:49:11,128 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-classworlds-2.8.0.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-component-annotations-2.1.0.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-interpolation-1.27.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-sec-dispatcher-2.0.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/plexus-utils-3.5.1.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-file-3.5.3.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-http-3.5.3.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-http-shared-3.5.3.jar
+2024-08-23 22:49:11,129 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313/jars/wagon-provider-api-3.5.3.jar
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [10])
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/com.google.guava_33.2.0.jre.jar
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.13 [515])
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/slf4j.api_2.0.13.jar
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [21])
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [24])
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [47])
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.cli_1.8.0.jar
+2024-08-23 22:49:11,131 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [48])
+2024-08-23 22:49:11,132 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.commons-codec_1.16.0.jar
+2024-08-23 22:49:11,132 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [54])
+2024-08-23 22:49:11,132 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/org.apache.commons.lang3_3.14.0.jar
+2024-08-23 22:49:11,132 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [11])
+2024-08-23 22:49:11,132 [Worker-347: Launching New_configuration] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: /Users/surendrasingh/.p2/pool/plugins/com.google.guava.failureaccess_1.0.2.jar
+2024-08-23 22:49:11,134 [Worker-347: Launching New_configuration] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "/Users/surendrasingh/Documents/JobWizard/backend":
+2024-08-23 22:49:11,135 [Worker-347: Launching New_configuration] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always clean install
+2024-08-23 22:49:48,765 [Worker-355: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.capstone.backend:backend:0.0.1-SNAPSHOT @ /Users/surendrasingh/Documents/JobWizard/backend/pom.xml.
+2024-08-23 22:49:49,285 [Worker-355: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:49:49,286 [Worker-355: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:49:49,290 [Worker-355: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:49:51,512 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:49:51,548 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:49:51,552 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:50:35,855 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:50:35,912 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:50:35,915 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:51:04,484 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:51:04,637 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:51:04,674 [Worker-348: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:52:59,187 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:52:59,224 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:52:59,227 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 22:59:30,221 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 22:59:30,304 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 22:59:30,308 [Worker-354: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 23:00:21,986 [Worker-358: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 23:00:22,105 [Worker-358: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 23:00:22,110 [Worker-358: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 23:00:34,407 [Worker-361: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 23:00:34,485 [Worker-361: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 23:00:34,491 [Worker-361: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-23 23:01:21,765 [Worker-361: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-23 23:01:21,826 [Worker-361: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-23 23:01:21,829 [Worker-361: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-24 12:08:53,028 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-08-24 12:14:16,641 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-24 12:14:16,766 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-24 12:14:16,798 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-24 12:15:02,995 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-24 12:15:03,074 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-24 12:15:03,091 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes
+2024-08-24 12:16:22,220 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src/main/resources to target/classes
+2024-08-24 12:16:22,297 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-08-24 12:16:22,317 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/test/resources to target/test-classes

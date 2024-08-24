@@ -38,8 +38,8 @@ public class Address {
 		
 	}
 
-	public Address(Long id, String street, String city, String state, String country, String zip, User user) {
-		this.id = id;
+	public Address(String userName, String street, String city, String state, String country, String zip) {
+		this.userName = userName;
 		this.street = street;
 		this.city = city;
 		this.state = state;
