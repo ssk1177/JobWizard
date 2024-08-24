@@ -292,6 +292,21 @@ public class ProfileService {
                     		(String) notificationSettingsData.get("start_time"),
                     		(String) notificationSettingsData.get("end_time")
                     		);
+                } else {
+                	notificationSettings.setReceiveEmailAlerts((Boolean) notificationSettingsData.get("receive_email_alerts"));
+                	notificationSettings.setJobMatchAlerts((Boolean) notificationSettingsData.get("job_match_alerts"));
+                	notificationSettings.setApplicationStatusUpdates((Boolean) notificationSettingsData.get("application_status_updates"));
+                	notificationSettings.setNewsletterSubscription((Boolean) notificationSettingsData.get("newsletter_subscription"));
+                	notificationSettings.setReceiveSmsAlerts((Boolean) notificationSettingsData.get("receive_sms_alerts"));
+                	notificationSettings.setSmsJobMatchAlerts((Boolean) notificationSettingsData.get("sms_job_match_alerts"));
+                	notificationSettings.setSmsApplicationStatusUpdates((Boolean) notificationSettingsData.get("sms_application_status_updates"));
+                	notificationSettings.setEnablePushNotifications((Boolean) notificationSettingsData.get("enable_push_notifications"));
+                	notificationSettings.setPushJobMatchAlerts((Boolean) notificationSettingsData.get("push_job_match_alerts"));
+                	notificationSettings.setPushApplicationStatusUpdates((Boolean) notificationSettingsData.get("push_application_status_updates"));
+                	notificationSettings.setFrequency((String) notificationSettingsData.get("frequency"));
+                	notificationSettings.setDoNotDisturb((Boolean) notificationSettingsData.get("do_not_disturb"));
+                	notificationSettings.setStartTime((String) notificationSettingsData.get("start_time"));
+                	notificationSettings.setEndTime((String) notificationSettingsData.get("end_time"));
                 }
                 notificationsRepository.save(notificationSettings);
             }
