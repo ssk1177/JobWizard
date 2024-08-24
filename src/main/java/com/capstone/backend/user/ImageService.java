@@ -57,7 +57,8 @@ public class ImageService {
         String username = profileService.getUserName();
 
         UserDetails userDetails = userDetailsRepository.findByUserName(username);
-            
+        
+    	System.out.print("Entering getImage...userDetails:"+ userDetails);
         if (userDetails != null && userDetails.getProfilePic() != null) {
 
         	return ResponseEntity.ok()
@@ -65,7 +66,7 @@ public class ImageService {
                         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + userDetails.getProfilePicName() + "\"")
                         .body(userDetails.getProfilePic());
         } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+                return ResponseEntity.ok().body("");
         }
 	}
 }

@@ -32,7 +32,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, jakarta.servlet.FilterChain chain)
             throws java.io.IOException, jakarta.servlet.ServletException {
-    	System.out.println("Entering doFilterInternal...");
         String authorizationHeader = request.getHeader("Authorization");
 
         String username = null;
@@ -46,7 +45,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // Validate token and set authentication context
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-        	System.out.println("Inside doFilterInternal...calling loadUserByUsername");
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
             if (jwtUtil.validateToken(jwt, userDetails)) {
@@ -57,7 +55,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         chain.doFilter(request, response);
-        System.out.println("Exiting doFilterInternal...");
     }
 }
 

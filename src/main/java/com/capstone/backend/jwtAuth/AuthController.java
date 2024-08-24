@@ -72,7 +72,6 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) throws Exception {
     	try {
-    		System.out.print("Entering login...");
     		Authentication authentication = authenticationManager.authenticate(
     				new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
     				);
@@ -80,12 +79,8 @@ public class AuthController {
     		throw new Exception("Incorrect Credentials", ex);
     	}
     	
-    	System.out.print("user exist...");
     	
-    	UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername()); 
-    			//(UserDetails) authentication.getPrincipal();
-    	
-    	System.out.print("generating token...");
+    	UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());     	
     	
     	String jwtTok = jwtUtil.generateToken(userDetails);  
         
