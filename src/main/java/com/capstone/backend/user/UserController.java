@@ -43,6 +43,21 @@ public class UserController {
         }
     }
 	
+	@GetMapping("/get_profile")
+    public ResponseEntity<Map<String, Object>> getProfile() {
+        try {
+        	System.out.print("Entering getProfile...");
+        	Map<String, Object> profile = profileService.getProfile();
+            return ResponseEntity.ok(profile);
+        } catch (Exception e) {
+            // Log error and return error response
+            // Use logger in actual implementation
+            System.err.println("Exception occurred: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.singletonMap("error", "An error occurred while fetching the profile"));
+        }
+    }
+	
 //	@GetMapping("/get_user_profile")
 //    @PreAuthorize("isAuthenticated()")  // Spring Security annotation for login required
 //    public ResponseEntity<Map<String, Object>> getUserProfile() {
