@@ -33,6 +33,10 @@ public class Documents {
 	
 	@Column(name = "uploadedOn")
 	private LocalDateTime uploadedOn;
+	
+	public Documents() {
+		
+	}
 
 	public Documents(String userName, String filename, String filetype, byte[] data, LocalDateTime uploadedOn) {
 		this.userName = userName;

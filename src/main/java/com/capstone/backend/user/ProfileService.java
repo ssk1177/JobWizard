@@ -113,6 +113,7 @@ public class ProfileService {
                     docInfo.put("id", doc.getId());
                     docInfo.put("filename", doc.getFilename());
                     docInfo.put("filetype", doc.getFiletype());
+                    docInfo.put("data", doc.getData());
                     docInfo.put("uploaded_on", doc.getUploadedOn().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     return docInfo;
                 })
