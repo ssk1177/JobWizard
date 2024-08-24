@@ -25,7 +25,12 @@ const Settings = ({ settingsData, onUpdate }) => {
     setLocalData((prevData) => {
       const updatedData = {
         ...prevData,
-        [name]: type === "checkbox" ? checked : value,
+        [name]:
+          type === "checkbox"
+            ? checked
+            : type === "number"
+            ? parseInt(value, 10)
+            : value, // Convert to integer if type is "number"
       };
       onUpdate(updatedData); // Notify parent about the change
       return updatedData;
