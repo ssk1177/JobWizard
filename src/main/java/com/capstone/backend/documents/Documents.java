@@ -34,8 +34,8 @@ public class Documents {
 	@Column(name = "uploadedOn")
 	private LocalDateTime uploadedOn;
 
-	public Documents(Long id, String filename, String filetype, byte[] data, LocalDateTime uploadedOn) {
-		this.id = id;
+	public Documents(String userName, String filename, String filetype, byte[] data, LocalDateTime uploadedOn) {
+		this.userName = userName;
 		this.filename = filename;
 		this.filetype = filetype;
 		this.data = data;

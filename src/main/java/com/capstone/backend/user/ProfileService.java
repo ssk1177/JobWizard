@@ -20,6 +20,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.capstone.backend.address.Address;
@@ -32,6 +33,7 @@ import com.capstone.backend.settings.Settings;
 import com.capstone.backend.settings.SettingsRepository;
 import com.capstone.backend.userDetails.UserDetails;
 import com.capstone.backend.userDetails.UserDetailsRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class ProfileService {
@@ -95,7 +97,7 @@ public class ProfileService {
                 Base64.getEncoder().encodeToString(userDetails.getProfilePic()) : "");
 
         // Fetch address details
-        Address address = addressRepository.findByUserName(username).orElse(null);
+        Address address = addressRepository.findByUserName(username);
         Map<String, Object> addressInfo = new HashMap<>();
         addressInfo.put("street", address != null ? address.getStreet() : "");
         addressInfo.put("city", address != null ? address.getCity() : "");
@@ -152,7 +154,6 @@ public class ProfileService {
         return response;
     }
 	
-	@GetMapping("/get_user_profile")
 	public Map<String, Object> getUserProfile() {
         Map<String, Object> response = new HashMap<>();
         
@@ -205,5 +206,133 @@ public class ProfileService {
 			e.printStackTrace();
 		}
         return outputStream.toByteArray();
+    }
+
+    public ResponseEntity<?> updateProfileSvc(Map<String, String> formData,
+                                            MultipartFile resumeFile,
+                                            MultipartFile coverLetterFile) {
+        try {
+        	System.out.println("Entering updateProfileSvc..formData:"+ formData);
+            String username = getUserName();
+            ObjectMapper objectMapper = new ObjectMapper(); // Initialize ObjectMapper here
+
+
+            // Update user info
+            if (formData.containsKey("user_info")) {
+            	System.out.println("inside updateProfileSvc, user_info");
+                Map<String, String> userInfo = objectMapper.readValue(formData.get("user_info"), Map.class);
+
+                UserDetails userDetails = userDetailsRepository.findByUserName(username);
+
+                userDetails.setFirstName(userInfo.get("first_name"));
+                userDetails.setLastName(userInfo.get("last_name"));
+                userDetails.setRole(userInfo.get("role"));
+                userDetails.setPhoneNumber(userInfo.get("phone_number"));
+                userDetails.setUpdatedOn(LocalDateTime.now());
+                userDetailsRepository.save(userDetails);
+            }
+
+            // Update address
+            if (formData.containsKey("address")) {
+                Map<String, String> addressData = objectMapper.readValue(formData.get("address"), Map.class);
+
+                Address address = addressRepository.findByUserName(username);
+                if (address == null) {
+                    address = new Address(username, addressData.get("street"), addressData.get("city"),
+                            addressData.get("state"), addressData.get("country"), addressData.get("zip"));
+                } else {
+                    address.setStreet(addressData.get("street"));
+                    address.setCity(addressData.get("city"));
+                    address.setState(addressData.get("state"));
+                    address.setCountry(addressData.get("country"));
+                    address.setZip(addressData.get("zip"));
+                }
+                addressRepository.save(address);
+            }
+
+            // Update settings
+            if (formData.containsKey("settings")) {
+                Map<String, Object> settingsData = objectMapper.readValue(formData.get("settings"), Map.class);
+
+                Settings settings = settingsRepository.findByUserName(username);
+                if (settings == null) {
+                    settings = new Settings();
+                    settings.setUserName(username);
+                }
+
+//                settingsData.forEach((key, value) -> {
+//                    if ("job_fetching_schedule".equals(key) && "".equals(value)) {
+//                        value = null;
+//                    }
+//                    // Set each setting in the entity
+//                    try {
+//                        settings.getClass().getMethod("set" + capitalize(key), value.getClass()).invoke(settings, value);
+//                    } catch (Exception e) {
+//                        throw new RuntimeException("Error setting value in settings", e);
+//                    }
+//                });
+
+                settingsRepository.save(settings);
+            }
+
+            // Update notification settings
+            if (formData.containsKey("notification_settings")) {
+                Map<String, Object> notificationSettingsData = objectMapper.readValue(formData.get("notification_settings"), Map.class);
+
+                Notifications notificationSettings = notificationsRepository.findByUserName(username);
+                if (notificationSettings == null) {
+                    notificationSettings = new Notifications();
+                    notificationSettings.setUserName(username);
+                }
+
+//                notificationSettingsData.forEach((key, value) -> {
+//                    try {
+//                        notifications.getClass().getMethod("set" + capitalize(key), value.getClass()).invoke(notificationSettings, value);
+//                    } catch (Exception e) {
+//                        throw new RuntimeException("Error setting value in notification settings", e);
+//                    }
+//                });
+
+                notificationsRepository.save(notificationSettings);
+            }
+
+            // Update or add resume
+            if (resumeFile != null && !resumeFile.isEmpty()) {
+                Documents resume = documentsRepository.findByUserNameAndFiletype(username, "resume");
+                if (resume == null) {
+                    resume = new Documents(username, resumeFile.getOriginalFilename(), "resume", resumeFile.getBytes(), LocalDateTime.now());
+                } else {
+                    resume.setFilename(resumeFile.getOriginalFilename());
+                    resume.setData(resumeFile.getBytes());
+                    resume.setUploadedOn(LocalDateTime.now());
+                }
+                documentsRepository.save(resume);
+            }
+
+            // Update or add cover letter
+            if (coverLetterFile != null && !coverLetterFile.isEmpty()) {
+                Documents coverLetter = documentsRepository.findByUserNameAndFiletype(username, "coverLetter");
+                if (coverLetter == null) {
+                    coverLetter = new Documents(username, coverLetterFile.getOriginalFilename(), "coverLetter", coverLetterFile.getBytes(), LocalDateTime.now());
+                } else {
+                    coverLetter.setFilename(coverLetterFile.getOriginalFilename());
+                    coverLetter.setData(coverLetterFile.getBytes());
+                    coverLetter.setUploadedOn(LocalDateTime.now());
+                }
+                documentsRepository.save(coverLetter);
+            }
+
+            return ResponseEntity.ok(Map.of("message", "Profile updated successfully"));
+
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", "Error processing files"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
+        }
+    }
+
+    // Utility method to capitalize the first letter
+    private String capitalize(String str) {
+        return Character.toUpperCase(str.charAt(0)) + str.substring(1);
     }
 }
