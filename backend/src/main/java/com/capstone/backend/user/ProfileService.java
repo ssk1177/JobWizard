@@ -141,7 +141,7 @@ public class ProfileService {
         Map<String, Object> settingsInfo = new HashMap<>();
         settingsInfo.put("auto_apply", settings != null ? settings.getAutoApply() : false);
         settingsInfo.put("job_fetching_schedule", settings != null && settings.getJobFetchingSchedule() != null ?
-                ((LocalDateTime) settings.getJobFetchingSchedule()).toLocalDate().toString() : "");
+                settings.getJobFetchingSchedule() : "");
         settingsInfo.put("webscrape_sites", settings != null ? settings.getWebscrapeSites() : "");
         settingsInfo.put("match_score_cutoff", settings != null ? settings.getMatchScoreCutoff() : 0);
 
@@ -256,22 +256,15 @@ public class ProfileService {
 
                 Settings settings = settingsRepository.findByUserName(username);
                 if (settings == null) {
-                    settings = new Settings();
-                    settings.setUserName(username);
+                    settings = new Settings(username, settingsData.get("auto_apply"), settingsData.get("job_fetching_schedule"),
+                    		settingsData.get("webscrape_sites"), settingsData.get("match_score_cutoff"));
+                } else {
+                	settings.setUserName(username);
+                	settings.setAutoApply(settingsData.get("auto_apply"));
+                	settings.setJobFetchingSchedule(settingsData.get("job_fetching_schedule"));
+                	settings.setWebscrapeSites(settingsData.get("webscrape_sites"));
+                	settings.setMatchScoreCutoff(settingsData.get("match_score_cutoff"));
                 }
-
-//                settingsData.forEach((key, value) -> {
-//                    if ("job_fetching_schedule".equals(key) && "".equals(value)) {
-//                        value = null;
-//                    }
-//                    // Set each setting in the entity
-//                    try {
-//                        settings.getClass().getMethod("set" + capitalize(key), value.getClass()).invoke(settings, value);
-//                    } catch (Exception e) {
-//                        throw new RuntimeException("Error setting value in settings", e);
-//                    }
-//                });
-
                 settingsRepository.save(settings);
             }
 

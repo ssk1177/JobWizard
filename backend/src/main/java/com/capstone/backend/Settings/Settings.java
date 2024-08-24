@@ -15,14 +15,43 @@ public class Settings {
 	@Column(name = "userName", nullable = false, unique = true)
 	private String userName;
 
-    @Column(nullable = false)
+    @Column(name="autoApply")
     private Boolean autoApply;
 
-    @Column(nullable = false)
+    @Column(name="jobFetchingSchedule")
+    private String jobFetchingSchedule;
+
+    @Column(name="webscrapeSites")
     private String webscrapeSites;
 
-    @Column(nullable = false)
+    @Column(name="matchScoreCutoff")
     private Integer matchScoreCutoff;
+
+	public Settings() {
+
+	}
+	
+	
+//
+//	public Settings(String userName, Boolean autoApply, String jobFetchingSchedule, String webscrapeSites, Integer matchScoreCutoff) {
+//		this.userName = userName;
+//		this.autoApply = autoApply;
+//		this.jobFetchingSchedule = jobFetchingSchedule;
+//		this.webscrapeSites = webscrapeSites;
+//		this.matchScoreCutoff = matchScoreCutoff;
+//	}
+
+
+
+	public Settings(String userName, Object autoApply, Object jobFetchingSchedule, Object webscrapeSites, Object matchScoreCutoff) {
+		this.userName = userName;
+		this.autoApply = (Boolean) autoApply;
+		this.jobFetchingSchedule = (String) jobFetchingSchedule;
+		this.webscrapeSites = (String) webscrapeSites;
+		this.matchScoreCutoff = (Integer) matchScoreCutoff;
+	}
+
+
 
 	public String getUserName() {
 		return userName;
@@ -55,6 +84,10 @@ public class Settings {
 	public void setWebscrapeSites(String webscrapeSites) {
 		this.webscrapeSites = webscrapeSites;
 	}
+	
+	public void setWebscrapeSites(Object object) {
+		this.webscrapeSites = (String) object;
+	}
 
 	public Integer getMatchScoreCutoff() {
 		return matchScoreCutoff;
@@ -63,9 +96,29 @@ public class Settings {
 	public void setMatchScoreCutoff(Integer matchScoreCutoff) {
 		this.matchScoreCutoff = matchScoreCutoff;
 	}
+	
+	public void setMatchScoreCutoff(Object object) {
+		this.matchScoreCutoff = (Integer) object;
+	}
 
-	public Object getJobFetchingSchedule() {
+	public String getJobFetchingSchedule() {
+		return this.jobFetchingSchedule;
+		
+	}
+
+
+	public void setJobFetchingSchedule(String jobFetchingSchedule) {
+		this.jobFetchingSchedule = jobFetchingSchedule;
+	}
+	
+	public void setJobFetchingSchedule(Object object) {
+		this.jobFetchingSchedule = (String) object;
+	}
+
+
+	public void setAutoApply(Object object) {
 		// TODO Auto-generated method stub
-		return null;
+		this.autoApply = (Boolean) object;
+		
 	}
 }
