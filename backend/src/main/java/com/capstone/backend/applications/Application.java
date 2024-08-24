@@ -16,8 +16,8 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long job_id;
 
-    @Column(name = "userId", nullable = false, unique = true)
-    private Long userId;
+    @Column(name = "userName", nullable = false, unique = true)
+	private String userName;
 
     @Column(name = "jobTitle", length = 255, nullable = false)
     private String jobTitle;
@@ -58,14 +58,6 @@ public class Application {
 
 	public void setJob_id(Long job_id) {
 		this.job_id = job_id;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
 	}
 
 	public String getJobTitle() {
@@ -154,5 +146,13 @@ public class Application {
 
 	public void setApplyLink(String applyLink) {
 		this.applyLink = applyLink;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }
