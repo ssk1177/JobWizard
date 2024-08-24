@@ -28,7 +28,7 @@ public class Documents {
 	private String filetype;
 	
 	@Lob
-	@Column(name = "data", columnDefinition="MEDIUMBLOB")
+	@Column(name = "data")
 	private byte[] data;
 	
 	@Column(name = "uploadedOn")
