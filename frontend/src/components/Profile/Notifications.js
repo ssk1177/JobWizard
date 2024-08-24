@@ -90,29 +90,29 @@ const Notifications = ({ notificationsData, onUpdate }) => {
             <div className="form-group">
               <input
                 type="checkbox"
-                id="receiveSMSAlerts"
-                checked={localData?.receiveSMSAlerts || false}
+                id="receive_sms_alerts"
+                checked={localData?.receive_sms_alerts || false}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="receiveSMSAlerts">Receive SMS Alerts</label>
+              <label htmlFor="receive_sms_alerts">Receive SMS Alerts</label>
             </div>
             <div className="form-group">
               <input
                 type="checkbox"
-                id="smsJobMatchAlerts"
-                checked={localData?.smsJobMatchAlerts || false}
+                id="sms_job_match_alerts"
+                checked={localData?.sms_job_match_alerts || false}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="smsJobMatchAlerts">Job Match Alerts</label>
+              <label htmlFor="sms_job_match_alerts">Job Match Alerts</label>
             </div>
             <div className="form-group">
               <input
                 type="checkbox"
-                id="smsApplicationStatusUpdates"
-                checked={localData?.smsApplicationStatusUpdates || false}
+                id="sms_application_status_updates"
+                checked={localData?.sms_application_status_updates || false}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="smsApplicationStatusUpdates">
+              <label htmlFor="sms_application_status_updates">
                 Application Status Updates
               </label>
             </div>
@@ -124,31 +124,31 @@ const Notifications = ({ notificationsData, onUpdate }) => {
             <div className="form-group">
               <input
                 type="checkbox"
-                id="enablePushNotifications"
-                checked={localData?.enablePushNotifications || false}
+                id="enable_push_notifications"
+                checked={localData?.enable_push_notifications || false}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="enablePushNotifications">
+              <label htmlFor="enable_push_notifications">
                 Enable Push Notifications
               </label>
             </div>
             <div className="form-group">
               <input
                 type="checkbox"
-                id="pushJobMatchAlerts"
-                checked={localData?.pushJobMatchAlerts || false}
+                id="push_job_match_alerts"
+                checked={localData?.push_job_match_alerts || false}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="pushJobMatchAlerts">Job Match Alerts</label>
+              <label htmlFor="push_job_match_alerts">Job Match Alerts</label>
             </div>
             <div className="form-group">
               <input
                 type="checkbox"
-                id="pushApplicationStatusUpdates"
-                checked={localData?.pushApplicationStatusUpdates || false}
+                id="push_application_status_updates"
+                checked={localData?.push_application_status_updates || false}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="pushApplicationStatusUpdates">
+              <label htmlFor="push_application_status_updates">
                 Application Status Updates
               </label>
             </div>
@@ -185,20 +185,20 @@ const Notifications = ({ notificationsData, onUpdate }) => {
             </div>
             <div className="form-inline">
               <div className="form-group">
-                <label htmlFor="startTime">Start Time</label>
+                <label htmlFor="start_time">Start Time</label>
                 <input
                   type="time"
-                  id="startTime"
-                  value={localData?.startTime || ""}
+                  id="start_time"
+                  value={localData?.start_time || ""}
                   onChange={handleTimeChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="endTime">End Time</label>
+                <label htmlFor="end_time">End Time</label>
                 <input
                   type="time"
-                  id="endTime"
-                  value={localData?.endTime || ""}
+                  id="end_time"
+                  value={localData?.end_time || ""}
                   onChange={handleTimeChange}
                 />
               </div>
