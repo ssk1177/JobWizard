@@ -66,10 +66,12 @@ const ProfileComponent = () => {
       setErrorMessage("");
 
       try {
-        const response = await axios.post(`${API_URL}/upload_image`, {
+        const response = await axios.post(`${API_URL}/upload_image`, formData, {
           headers: {
             "Authorization": `Bearer ${token}`,
-          }, formData});
+            "Content-Type": "multipart/form-data",
+          },
+        });
         if (response.data.status === 200) {
           setUserImage(response.data.imageUrl);
           console.log(
