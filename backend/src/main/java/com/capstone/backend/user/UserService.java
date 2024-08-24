@@ -1,9 +1,34 @@
 package com.capstone.backend.user;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.capstone.backend.address.Address;
+import com.capstone.backend.address.AddressRepository;
+import com.capstone.backend.documents.Documents;
+import com.capstone.backend.documents.DocumentsRepository;
+import com.capstone.backend.notifications.Notifications;
+import com.capstone.backend.notifications.NotificationsRepository;
+import com.capstone.backend.settings.Settings;
+import com.capstone.backend.settings.SettingsRepository;
+import com.capstone.backend.userDetails.UserDetails;
+import com.capstone.backend.userDetails.UserDetailsRepository;
 
 //import com.capstone.backend.userDetails.UserDetailsRepository;
 //import java.time.LocalDateTime;
@@ -12,7 +37,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
 	
 	@Autowired
-	private UserRepository userRepo;
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserDetailsRepository userDetailsRepository;
+
+    
 	
 	//@Autowired
 	//private UserDetailsRepository userDetailsRepo;
@@ -47,8 +77,8 @@ public class UserService {
 	}
 	
 	public boolean isUserExist(String username, String email) {
-		User usernameOptional = userRepo.findByUserName(username);
-		User emailOptional = userRepo.findByEmail(email);
+		User usernameOptional = userRepository.findByUserName(username);
+		User emailOptional = userRepository.findByEmail(email);
 		
 		if(usernameOptional != null || emailOptional != null)
 			return true;
@@ -56,15 +86,15 @@ public class UserService {
 			return false;
 	}
 
-	public String getUserProfile() {//int userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public String getUserProfile() {//int userId) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	public String registerUser(User newUser) {
 
 		// Create entry in User table
-		User addeduser = userRepo.save(newUser);
+		User addeduser = userRepository.save(newUser);
 		
 		
 		//createUserDetails(addeduser);
@@ -73,5 +103,9 @@ public class UserService {
 		
 		return null;
 	}
+	
+	
+    
+    
 
 }

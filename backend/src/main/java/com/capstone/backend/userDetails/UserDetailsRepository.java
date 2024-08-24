@@ -1,10 +1,8 @@
 package com.capstone.backend.userDetails;
 
-import java.util.Optional;
-
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserDetailsRepository extends CrudRepository<UserDetails, Integer>{
+public interface UserDetailsRepository extends CrudRepository<UserDetails, Long>{
 
-	Optional<org.springframework.security.core.userdetails.UserDetails> findByUserName(String username);
+	UserDetails findByUserName(String username);
 }

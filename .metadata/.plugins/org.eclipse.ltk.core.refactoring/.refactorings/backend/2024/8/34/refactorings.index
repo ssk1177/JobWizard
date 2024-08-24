@@ -15,3 +15,11 @@
 1724343158639	Copy compilation unit
 1724351658880	Rename type 'UserDetailsService'
 1724351689299	Delete element
+1724387367529	Copy compilation unit
+1724387387367	Rename type 'UserRepository'
+1724387431696	Copy compilation unit
+1724387452779	Rename type 'AddressRepository'
+1724387476676	Copy compilation unit
+1724387498969	Rename type 'DocumentsRepository'
+1724387524436	Copy compilation unit
+1724387540717	Rename type 'NotificationsRepository'
