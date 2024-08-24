@@ -56,7 +56,7 @@ public class UserController {
             System.err.println("Error fetching profile data: " + e.getMessage());
             Map<String, Object> errorResponse = new HashMap<>();
             errorResponse.put("status", 500);
-            errorResponse.put("message", "Exception raised in backend:get_user_profile");
+            errorResponse.put("message", "Exception raised in backend:get_user_profile"+e);
             return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
