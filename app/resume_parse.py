@@ -1,13 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask  # , render_template
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import spacy
 import re
-import fitz  # PyMuPDF
-import requests
+# import fitz  # PyMuPDF
+# import requests
 from bs4 import BeautifulSoup
-import json
-import PyPDF2
+# import json
+# import PyPDF2
 from docx import Document
 import io
 
@@ -42,7 +42,7 @@ def extract_text_from_pdf(pdf_blob):
     if DEBUG:
         print("Entering extract_text_from_pdf...")
 
-    reader = PyPDF2.PdfReader(io.BytesIO(pdf_blob))
+    reader = io.BytesIO(pdf_blob)  # PyPDF2.PdfReader(io.BytesIO(pdf_blob))
     text = ""
     for page in reader.pages:
         text += page.extract_text()
