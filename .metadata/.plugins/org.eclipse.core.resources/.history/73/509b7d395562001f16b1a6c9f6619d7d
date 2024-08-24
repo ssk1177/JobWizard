@@ -127,7 +127,7 @@ public class ProfileService {
 	        notificationInfo.put("application_status_updates", notificationSettings.getApplicationStatusUpdates() != null ? notificationSettings.getApplicationStatusUpdates() : false);
 	        notificationInfo.put("newsletter_subscription", notificationSettings.getNewsletterSubscription() != null ? notificationSettings.getNewsletterSubscription() : false);
 	        notificationInfo.put("receive_sms_alerts", notificationSettings.getReceiveSmsAlerts() != null ? notificationSettings.getReceiveSmsAlerts() : false);
-	        notificationInfo.put("sms_job_match_alerts", notificationSettings.getSmsJobMatchAlerts() != null ? notificationSettings.getSmsJobMatchAlerts() : false);
+	        notificationInfo.put("smsJobMatchAlerts", notificationSettings.getSmsJobMatchAlerts() != null ? notificationSettings.getSmsJobMatchAlerts() : false);
 	        notificationInfo.put("sms_application_status_updates", notificationSettings.getSmsApplicationStatusUpdates() != null ? notificationSettings.getSmsApplicationStatusUpdates() : false);
 	        notificationInfo.put("enable_push_notifications", notificationSettings.getEnablePushNotifications() != null ? notificationSettings.getEnablePushNotifications() : false);
 	        notificationInfo.put("push_job_match_alerts", notificationSettings.getPushJobMatchAlerts() != null ? notificationSettings.getPushJobMatchAlerts() : false);
@@ -282,7 +282,7 @@ public class ProfileService {
                     		(Boolean) notificationSettingsData.get("application_status_updates"),
                     		(Boolean) notificationSettingsData.get("newsletter_subscription"),
                     		(Boolean) notificationSettingsData.get("receive_sms_alerts"),
-                    		(Boolean) notificationSettingsData.get("sms_job_match_alerts"),
+                    		(Boolean) notificationSettingsData.get("smsJobMatchAlerts"),
                     		(Boolean) notificationSettingsData.get("sms_application_status_updates"),
                     		(Boolean) notificationSettingsData.get("enable_push_notifications"),
                     		(Boolean) notificationSettingsData.get("push_job_match_alerts"),
@@ -298,7 +298,7 @@ public class ProfileService {
                 	notificationSettings.setApplicationStatusUpdates((Boolean) notificationSettingsData.get("application_status_updates"));
                 	notificationSettings.setNewsletterSubscription((Boolean) notificationSettingsData.get("newsletter_subscription"));
                 	notificationSettings.setReceiveSmsAlerts((Boolean) notificationSettingsData.get("receive_sms_alerts"));
-                	notificationSettings.setSmsJobMatchAlerts((Boolean) notificationSettingsData.get("sms_job_match_alerts"));
+                	notificationSettings.setJobMatchAlerts((Boolean) notificationSettingsData.get("smsJobMatchAlerts"));
                 	notificationSettings.setSmsApplicationStatusUpdates((Boolean) notificationSettingsData.get("sms_application_status_updates"));
                 	notificationSettings.setEnablePushNotifications((Boolean) notificationSettingsData.get("enable_push_notifications"));
                 	notificationSettings.setPushJobMatchAlerts((Boolean) notificationSettingsData.get("push_job_match_alerts"));
