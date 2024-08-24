@@ -58,18 +58,14 @@ public class ProfileService {
 
     
     public String getUserName() {
-    	System.out.println("Entering profileservice.getUserId...");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("Entering profileservice.getUserId...1");
         String username = null;
 
         if (authentication != null && authentication.getPrincipal() instanceof org.springframework.security.core.userdetails.UserDetails) {
-        	System.out.println("Entering profileservice.getUserId...2");
         	org.springframework.security.core.userdetails.UserDetails userDetails = (org.springframework.security.core.userdetails.UserDetails) authentication.getPrincipal();
             // Assuming the user ID is stored in the username field; adjust as needed.
         	username = userDetails.getUsername();
         }
-        System.out.println("Entering profileservice.getUserId...3");
         
         return username;
     }
@@ -77,16 +73,11 @@ public class ProfileService {
 	public Map<String, Object> getProfile() {
         Map<String, Object> response = new HashMap<>();
         
-        System.out.println("Entering profileservice.getProfile...");
-        
         String username = this.getUserName();
-        
-        System.out.println("Entering profileservice.getProfile..., username:"+ username);
 
         // Fetch user details
         UserDetails userDetails = userDetailsRepository.findByUserName(username);
         
-        System.out.println("userDetails:"+userDetails);
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("first_name", userDetails != null ? userDetails.getFirstName() : "");
         userInfo.put("last_name", userDetails != null ? userDetails.getLastName() : "");
@@ -179,14 +170,12 @@ public class ProfileService {
                                             MultipartFile resumeFile,
                                             MultipartFile coverLetterFile) {
         try {
-        	System.out.println("Entering updateProfileSvc..formData:"+ formData);
             String username = getUserName();
             ObjectMapper objectMapper = new ObjectMapper(); // Initialize ObjectMapper here
 
 
             // Update user info
             if (formData.containsKey("user_info")) {
-            	System.out.println("inside updateProfileSvc, user_info");
                 Map<String, String> userInfo = objectMapper.readValue(formData.get("user_info"), Map.class);
 
                 UserDetails userDetails = userDetailsRepository.findByUserName(username);
