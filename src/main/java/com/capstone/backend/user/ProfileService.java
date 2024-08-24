@@ -110,7 +110,6 @@ public class ProfileService {
         List<Map<String, Object>> documentsList = userDocuments.stream()
                 .map(doc -> {
                     Map<String, Object> docInfo = new HashMap<>();
-                    docInfo.put("id", doc.getId());
                     docInfo.put("filename", doc.getFilename());
                     docInfo.put("filetype", doc.getFiletype());
                     docInfo.put("data", doc.getData());
@@ -173,14 +172,12 @@ public class ProfileService {
             if (userDetails != null && userDetails.getProfilePic() != null) {
                 try {
                     byte[] decompressedImageData = decompress(userDetails.getProfilePic());
-                    // Assuming the decompression is needed as in Flask
-                    //String imageUrl = "http://localhost:5000/get_image";
-                    userData.put("imageUrl", decompressedImageData);
+                    userData.put("image", decompressedImageData);
                 } catch (DataFormatException e) {
                     throw new RuntimeException("Error decompressing image data", e);
                 }
             } else {
-                userData.put("imageUrl", null);
+                userData.put("image", null);
             }
 
             response.put("status", 200);

@@ -40,25 +40,10 @@ public class ImageUploadService {
                 
                 userDetails.setProfilePic(file.getBytes());
                 userDetailsRepository.save(userDetails);
-                
-//                System.out.println("Entering  uploadImage, userDetails: "+userDetails);
-//                // Compress the image data
-//                byte[] compressedImageData = compressImage(file);
-//
-//                System.out.println("Entering  uploadImage..1");
-//                
-//                userDetails.setProfilePic(compressedImageData);
-//                
-//                System.out.println("Entering  uploadImage..2");
-//                
-//                userDetailsRepository.save(userDetails);
-//                
-//                System.out.println("Entering  uploadImage..3");
 
                 response.put("status", 200);
-                response.put("imageUrl", "/get_image");
-//                
-//                System.out.println("Exiting  uploadImage");
+                response.put("image", file.getBytes());
+
             } catch (Exception e) {
                 response.put("status", 500);
                 response.put("message", e.getMessage());
