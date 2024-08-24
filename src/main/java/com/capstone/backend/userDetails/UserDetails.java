@@ -19,9 +19,6 @@ public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "userId", nullable = false, unique = true)
-    private Long userId;
     
     @Column(name = "userName", nullable = false, unique = true)
 	private String userName;
@@ -48,8 +45,11 @@ public class UserDetails {
     @Column(name = "updatedOn", nullable = false)
     private LocalDateTime updatedOn;
     
-    public UserDetails(Long userId, String userName, String email) {
-		this.userId = userId;
+    public UserDetails() {
+    	
+    }
+    
+    public UserDetails(String userName, String email) {
 		this.userName = userName;
 		this.email = email;
 		this.updatedOn = LocalDateTime.now();
@@ -62,14 +62,6 @@ public class UserDetails {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public String getEmail() {

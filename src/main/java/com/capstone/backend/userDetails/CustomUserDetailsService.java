@@ -44,7 +44,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
 	public void createUser(com.capstone.backend.user.User addedUser) {
-		userDetailsRepo.save(new com.capstone.backend.userDetails.UserDetails(addedUser.getUser_id(), addedUser.getUsername(), addedUser.getEmail()));
+		userDetailsRepo.save(new com.capstone.backend.userDetails.UserDetails(addedUser.getUsername(), addedUser.getEmail()));
 	}
     	
 }
