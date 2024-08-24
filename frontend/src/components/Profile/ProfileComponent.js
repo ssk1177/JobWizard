@@ -16,18 +16,6 @@ const ProfileComponent = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`/api/images/${imageId}`, { responseType: "blob" })
-      .then((response) => {
-        const url = URL.createObjectURL(new Blob([response.data]));
-        setImageSrc(url);
-      })
-      .catch((error) => {
-        console.error("Error retrieving image", error);
-      });
-  }, [imageId]);
-
-  useEffect(() => {
     const fetchProfileData = async () => {
       try {
         const response = await axios.get(`${API_URL}/get_image`, {
