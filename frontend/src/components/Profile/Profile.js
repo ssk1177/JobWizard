@@ -22,23 +22,6 @@ const Profile = () => {
   const [popupMessage, setPopupMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchProfileData = async () => {
-  //     try {
-  //       const response = await axios.get("/get_profile");
-  //       const data = response.data;
-  //       setUserData(data.user);
-  //       setAddressData(data.address);
-  //       setDocumentData(data.documents);
-  //       setNotificationsData(data.notification_settings);
-  //       setSettingsData(data.settings);
-  //     } catch (error) {
-  //       //console.error("Error fetching profile data:", error);
-  //     }
-  //   };
-  //   fetchProfileData();
-  // }, []);
-
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
@@ -55,7 +38,7 @@ const Profile = () => {
           if (data.user_info) setUserData(data.user_info);
           if (data.address) setAddressData(data.address);
           if (data.documents) setDocumentData(data.documents);
-          if (data.notification_settings)
+          if (data.notifications)
             setNotificationsData(data.notifications);
           if (data.settings) setSettingsData(data.settings);
         }
