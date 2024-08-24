@@ -39,7 +39,7 @@ public class UserDetails {
     private String role;
 
     @Lob
-    @Column(name = "profilePic")
+    @Column(name = "profilePic", columnDefinition="MEDIUMBLOB")
     private byte[] profilePic;
 
     @Column(name = "updatedOn", nullable = false)
