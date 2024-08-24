@@ -156,36 +156,6 @@ public class ProfileService {
         return response;
     }
 	
-	public Map<String, Object> getUserProfile() {
-        Map<String, Object> response = new HashMap<>();
-        
-        String username = this.getUserName();
-
-        UserDetails userDetails = userDetailsRepository.findByUserName(username);
-
-        if (userDetails != null) {
-        	
-            Map<String, Object> userData = new HashMap<>();
-            userData.put("username", userDetails.getUserName());
-            userData.put("role", userDetails.getRole() != null ? userDetails.getRole() : "");
-
-            if (userDetails != null && userDetails.getProfilePic() != null) {
-                    //byte[] decompressedImageData = decompress(userDetails.getProfilePic());
-            	userData.put("image", userDetails.getProfilePic());
-                
-            } else {
-                userData.put("image", null);
-            }
-
-            response.put("status", 200);
-            response.put("data", userData);
-        } else {
-            response.put("status", 404);
-            response.put("message", "User data not found");
-        }
-
-        return response;
-    }
 
     private byte[] decompress(byte[] data) throws DataFormatException {
         Inflater inflater = new Inflater();

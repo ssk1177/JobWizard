@@ -1,24 +1,22 @@
 package com.capstone.backend.user;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-import java.util.zip.Deflater;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import com.capstone.backend.userDetails.UserDetails;
 import com.capstone.backend.userDetails.UserDetailsRepository;
 
 @Service
-public class ImageUploadService {
-
-    @Autowired
-    private UserRepository userRepository;
+public class ImageService {
 
     @Autowired
     private UserDetailsRepository userDetailsRepository;
@@ -38,11 +36,12 @@ public class ImageUploadService {
                 UserDetails userDetails = userDetailsRepository.findByUserName(username);
                         //.orElse(new UserDetails(userId, null, null));
                 
+                userDetails.setProfilePicName(file.getOriginalFilename());
+                userDetails.setProfilePicType(file.getContentType());
                 userDetails.setProfilePic(file.getBytes());
                 userDetailsRepository.save(userDetails);
 
                 response.put("status", 200);
-                response.put("image", file.getBytes());
 
             } catch (Exception e) {
                 response.put("status", 500);
@@ -52,20 +51,21 @@ public class ImageUploadService {
 
         return response;
     }
+    
+    public ResponseEntity<?> getImage() {
+        
+        String username = profileService.getUserName();
 
-    private byte[] compressImage(MultipartFile file) throws IOException {
-        byte[] data = file.getBytes();
-        Deflater deflater = new Deflater();
-        deflater.setInput(data);
-        deflater.finish();
+        UserDetails userDetails = userDetailsRepository.findByUserName(username);
+            
+        if (userDetails != null && userDetails.getProfilePic() != null) {
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
-        byte[] buffer = new byte[1024];
-        while (!deflater.finished()) {
-            int count = deflater.deflate(buffer);
-            outputStream.write(buffer, 0, count);
+        	return ResponseEntity.ok()
+                        .contentType(MediaType.valueOf(userDetails.getProfilePicType()))
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + userDetails.getProfilePicName() + "\"")
+                        .body(userDetails.getProfilePic());
+        } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        outputStream.close();
-        return outputStream.toByteArray();
-    }
+	}
 }
