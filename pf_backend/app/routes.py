@@ -38,13 +38,14 @@ def allowed_file(filename):
 
 @routes.route('/performSimilarityMatch', methods=['POST'])
 def performSimilarityMatch():
+    print("Entering performSimilarityMatch")
     try:
         # Check if the request contains both the file and job description parts
-        if 'resume' not in request.files or 'job_desc' not in request.form:
+        if 'resumeBrowse' not in request.files or 'job_description' not in request.form:
             return jsonify({"error": "Missing file or job description in the request"}), 400
 
-        resume = request.files['resume']
-        job_desc = request.form['job_desc']
+        resume = request.files['resumeBrowse']
+        job_desc = request.form['job_description']
 
         # If the user does not select a file, the browser also submits an empty part without filename
         if resume.filename == '':
@@ -74,7 +75,7 @@ def performSimilarityMatch():
                 "matched_resume_texts": matched_resume_texts,
                 "matched_job_texts": matched_job_texts
             }
-
+            print("response:", response)
             return jsonify(response), 200
 
     except Exception as e:

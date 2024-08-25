@@ -5,7 +5,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,11 +17,11 @@ public class ResumeController {
 	
 	@PostMapping("/scan_resume")
 	public ResponseEntity<?> scanResume(
-            @RequestParam(value = "resumeBrowse", required = false) MultipartFile resumeFile,
-            @RequestParam("job_description") String jobDesc) {
+            @RequestParam(value = "resumeBrowse", required = false) MultipartFile resumeBrowse,
+            @RequestParam("job_description") String job_description) {
 		System.out.println("Entering scanResume...");
 		try {
-			scanResume.callPythonApi(resumeFile, jobDesc);
+			scanResume.callPythonApi(resumeBrowse, job_description);
 		
 			return ResponseEntity.ok().body("Inside Response Entity");
 		} catch (Exception ex) {

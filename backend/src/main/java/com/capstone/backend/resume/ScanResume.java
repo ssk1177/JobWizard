@@ -21,10 +21,10 @@ public class ScanResume {
         this.restTemplate = new RestTemplate();
     }
 
-    public ResponseEntity<String> callPythonApi(MultipartFile resumeFile, String jobDesc) {
+    public ResponseEntity<String> callPythonApi(MultipartFile resumeBrowse, String job_description) {
     	try {
-    		//String url = "http://localhost:5000/performSimilarityMatch";
-    		String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
+    		String url = "http://localhost:5000/performSimilarityMatch";
+    		//String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
     		
     		// Prepare headers
             HttpHeaders headers = new HttpHeaders();
@@ -32,8 +32,8 @@ public class ScanResume {
 
             // Prepare body
             MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
-            body.add("resume", new MultipartFileResource(resumeFile));
-            body.add("job_desc", jobDesc);
+            body.add("resumeBrowse", new MultipartFileResource(resumeBrowse));
+            body.add("job_description", job_description);
 
             // Prepare request entity
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
