@@ -1,0 +1,9 @@
+package com.capstone.backendJ.userDetails;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserDetailsController {
+
+	
+}
