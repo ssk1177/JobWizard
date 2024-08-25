@@ -9,6 +9,7 @@ import io
 
 DEBUG = True
 
+
 # Create a Blueprint for the routes
 routes = Blueprint('routes', __name__)
 
