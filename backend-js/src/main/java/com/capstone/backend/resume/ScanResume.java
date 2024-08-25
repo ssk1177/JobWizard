@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @Service
@@ -21,50 +22,30 @@ public class ScanResume {
     }
 
     public ResponseEntity<String> callPythonApi(MultipartFile resumeBrowse, String job_description) {
-    	try {
-    		//String url = "http://localhost:5000/performSimilarityMatch";
-    		String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
-    		
-    		// Prepare headers
+        try {
+            String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
+            
             HttpHeaders headers = new HttpHeaders();
             headers.set("Content-Type", "multipart/form-data");
 
-            // Prepare body
             MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
             body.add("resumeBrowse", new MultipartFileResource(resumeBrowse));
             body.add("job_description", job_description);
 
-            // Prepare request entity
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-            // Forward request to Python API
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
 
-    		System.out.println("response:"+response.getBody());
-            return ResponseEntity.ok(response.getBody());
-    		
-    		
-    		
-//            HttpHeaders headers = new HttpHeaders();
-//            headers.set("Content-Type", "application/json");
-//
-//            // Example payload
-//            String payload = "{\"key\": \"value\"}";
-//
-//            HttpEntity<String> requestEntity = new HttpEntity<>(payload, headers);
-//            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
-
-            //System.out.println("Response: " + response.getBody());
-    		
-    		
-    		//return "working";
-	        //String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
-//	    	String url = "http://localhost:5000/performSimilarityMatch";
-//	        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-//	        return response.getBody();
-    	} catch (Exception ex) {
-    		System.out.print("Exception raised in callPythonApi:"+ex);
-    		return null;
-    	}
+            if (response.getStatusCode() == HttpStatus.OK) {
+                System.out.println("response: " + response.getBody());
+                return ResponseEntity.ok(response.getBody());
+            } else {
+                System.out.println("Error response: " + response.getBody());
+                return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+            }
+        } catch (Exception ex) {
+            System.out.print("Exception raised in callPythonApi: " + ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error communicating with Python API");
+        }
     }
 }

@@ -25,14 +25,12 @@ def allowed_file(filename):
 @routes.route('/performSimilarityMatch', methods=['POST'])
 def performSimilarityMatch():
     try:
-        # Check if the request contains both the file and job description parts
         if 'resumeBrowse' not in request.files or 'job_description' not in request.form:
             return jsonify({"error": "Missing file or job description in the request"}), 400
 
         resume = request.files['resumeBrowse']
         job_desc = request.form['job_description']
 
-        # If the user does not select a file, the browser also submits an empty part without filename
         if resume.filename == '':
             return jsonify({"error": "No selected file"}), 400
 
@@ -42,16 +40,15 @@ def performSimilarityMatch():
 
             try:
                 nlp = spacy.load('en_core_web_sm')
-            except OSError as e:
+            except OSError:
                 spacy.cli.download("en_core_web_sm")
                 nlp = spacy.load('en_core_web_sm')
 
-            resume_blob = resume.stream.read()  # Read the resume file stream
+            resume_blob = resume.stream.read()
 
             parsed_resume = parse_resume(nlp, resume_blob)
             job_texts = extract_entities(nlp, job_desc)
 
-            # Get similarities and matched texts
             similarities, matched_resume_texts, matched_job_texts = tfidf_cosine_similarity(
                 parsed_resume, job_texts)
 
@@ -62,6 +59,8 @@ def performSimilarityMatch():
             }
 
             return jsonify(response), 200
+        else:
+            return jsonify({"error": "Invalid file type"}), 400
 
     except Exception as e:
         print("Exception raised in performSimilarityMatch:", e)
