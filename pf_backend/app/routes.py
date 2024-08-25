@@ -1,4 +1,6 @@
-# from flask import Blueprint, jsonify, Response, current_app, send_from_directory, request, jsonify
+from flask import Blueprint
+import spacy
+# jsonify, Response, current_app, send_from_directory, request, jsonify
 # from flask_login import login_user, login_required, logout_user, current_user
 # from .models import db, User
 # from . import db
@@ -12,12 +14,24 @@
 # import json
 # import base64
 # from .util import *
-from .resume_parse import *
+# from .resume_parse import *
 
 # DEBUG = True
 
-# # Create a Blueprint for the routes
-# routes = Blueprint('routes', __name__)
+# Create a Blueprint for the routes
+routes = Blueprint('routes', __name__)
+
+
+@routes.route('/api/example', methods=['GET'])
+def example():
+    try:
+        nlp = spacy.load('en_core_web_sm')
+        print("Model loaded successfully!")
+        return ""
+    except Exception as e:  # OSError as e:
+        spacy.cli.download("en_core_web_sm")
+        nlp = spacy.load('en_core_web_sm')
+        print(f"Error: {e}")
 
 
 # @routes.route('/manifest.json')
