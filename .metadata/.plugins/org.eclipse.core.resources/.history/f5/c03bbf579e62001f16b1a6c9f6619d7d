@@ -1,0 +1,26 @@
+package com.capstone.backend.resume;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ResumeController {
+	
+	@Autowired
+	private ScanResume scanResume;
+	
+	@PostMapping("/scan_resume")
+	public ResponseEntity<?> scanResume(@RequestBody ResumeRequest resumeRequest) {
+		System.out.println("Entering scanResume...");
+		try {
+			scanResume.callPythonApi(resumeRequest.getResume(), resumeRequest.getJobDesc());
+		
+			return ResponseEntity.ok().body("Inside Response Entity");
+		} catch (Exception ex) {
+			return ResponseEntity.status(500).body("Exception raised in scanResume: "+ex);
+		}	
+	}
+}
