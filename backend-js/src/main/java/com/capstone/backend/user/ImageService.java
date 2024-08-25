@@ -3,6 +3,8 @@ package com.capstone.backend.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ import org.springframework.http.MediaType;
 
 @Service
 public class ImageService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ImageService.class);
 
     @Autowired
     private UserDetailsRepository userDetailsRepository;
@@ -28,7 +32,6 @@ public class ImageService {
         
         String username = profileService.getUserName();
         
-        System.out.println("Entering  uploadImage, username: "+username);
 
             try {
 
@@ -43,6 +46,7 @@ public class ImageService {
                 response.put("status", 200);
 
             } catch (Exception e) {
+            	logger.error("Exception raised in uploadImage: "+e);
                 response.put("status", 500);
                 response.put("message", e.getMessage());
             }
@@ -52,12 +56,12 @@ public class ImageService {
     }
     
     public ResponseEntity<?> getImage() {
+    	try {
         
         String username = profileService.getUserName();
 
         UserDetails userDetails = userDetailsRepository.findByUserName(username);
         
-    	System.out.print("Entering getImage...userDetails:"+ userDetails);
         if (userDetails != null && userDetails.getProfilePic() != null) {
 
         	return ResponseEntity.ok()
@@ -65,7 +69,13 @@ public class ImageService {
                         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + userDetails.getProfilePicName() + "\"")
                         .body(userDetails.getProfilePic());
         } else {
-                return ResponseEntity.ok().body("");
+        	logger.error("Either userDetail or getProfilepic return null ");
+
         }
+    	}catch (Exception ex) {
+    		logger.error("Exception raised in getImage", ex);
+    		
+    	}
+    	return ResponseEntity.ok().body(""); // TODO
 	}
 }

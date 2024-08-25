@@ -1,5 +1,7 @@
 package com.capstone.backend.jwtAuth;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,10 +17,10 @@ import com.capstone.backend.user.User;
 import com.capstone.backend.user.UserRepository;
 import com.capstone.backend.userDetails.CustomUserDetailsService;
 
-//import com.capstone.backend.userDetails.*;
-
 @RestController
 public class AuthController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -44,6 +46,7 @@ public class AuthController {
 	        if (userRepository.existsByUserName(registerRequest.getUsername())) {
 	            //throw new Exception("Username already taken");
 	            message = "Username already taken";
+	            logger.info("registerUser:: Username already taken ");
 	        } else {
 	        
 		        // Create a new user entity
@@ -63,7 +66,7 @@ public class AuthController {
 		        message = "User registered successfully";
 	        }
     	} catch(Exception ex) {
-    		
+    		logger.error("user registration failed ", ex);
     		throw new Exception("user registration failed", ex);
     	}
     	return ResponseEntity.ok().body(message);
@@ -76,6 +79,7 @@ public class AuthController {
     				new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
     				);
     	} catch (BadCredentialsException ex) {
+    		logger.error("Incorrect Credentials ", ex);
     		throw new Exception("Incorrect Credentials", ex);
     	}
     	

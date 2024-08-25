@@ -1,11 +1,14 @@
 package com.capstone.backend.userDetails;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import com.capstone.backend.jwtAuth.AuthController;
 import com.capstone.backend.user.UserRepository;
 
 //import com.capstone.backend.userDetails.*;
@@ -14,6 +17,8 @@ import java.util.*;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
+	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+	
     @Autowired
     private UserRepository userRepo;
     
@@ -24,17 +29,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) {
     	
     	try {
-	    	System.out.print("Inside loadUserByUsername...");
-	    	
 	    	com.capstone.backend.user.User user = userRepo.findByUserName(username);
-	        
-	        System.out.print("Inside loadUserByUsername...user:"+ user.getUsername()+ ", pass:" +user.getPassword() + ", aut:" + user.getAuthorities());
-	        
-	    	System.out.print("Inside loadUserByUsername...user exist..");
 	
 	        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());   
     	} catch (Exception ex) {
-    		System.out.println("Exception raised in loadUserByUsername:"+ex);
+
+    		logger.error("Exception raised in loadUserByUsername:"+ex);
     		throw new RuntimeException("Exception raised in loadUserByUsername");
     	}
     	

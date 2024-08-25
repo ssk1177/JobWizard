@@ -6,10 +6,11 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.capstone.backend.jwtAuth.JwtAuthenticationFilter;
 
 import org.springframework.http.MediaType;
-
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 
 @Service
 public class ScanResume {
+	private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
     private final RestTemplate restTemplate;
 
@@ -41,17 +43,19 @@ public class ScanResume {
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
 
             if (response.getStatusCode() == HttpStatus.OK) {
-                System.out.println("response: " + response.getBody());
+                
                 // Ensure the response entity is JSON
                 HttpHeaders jsonHeaders = new HttpHeaders();
                 jsonHeaders.setContentType(MediaType.APPLICATION_JSON);
                 return new ResponseEntity<>(response.getBody(), jsonHeaders, HttpStatus.OK);
             } else {
-                System.out.println("Error response: " + response.getBody());
+            	logger.error("Error response: " + response.getBody());
+                
                 return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
             }
         } catch (Exception ex) {
-            System.out.print("Exception raised in callPythonApi: " + ex);
+        	logger.error("Exception raised in callPythonApi: " + ex);
+
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                                  .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                                  .body("{\"message\": \"Error communicating with Python API\"}");

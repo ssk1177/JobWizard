@@ -6,7 +6,7 @@ def create_app():
 
     app = Flask(__name__)
 
-    CORS(app, origins=["https://backend-js-04094e015680.herokuapp.com"])
+    CORS(app, origins=["https://backend-js-b12a3f3854fe.herokuapp.com"])
 
     # Register the Blueprint with the app
     with app.app_context():
