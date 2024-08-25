@@ -6,6 +6,10 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+
+import org.springframework.http.MediaType;
+
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -26,7 +30,7 @@ public class ScanResume {
             String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
             
             HttpHeaders headers = new HttpHeaders();
-            headers.set("Content-Type", "multipart/form-data");
+            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
             MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
             body.add("resumeBrowse", new MultipartFileResource(resumeBrowse));
@@ -38,14 +42,19 @@ public class ScanResume {
 
             if (response.getStatusCode() == HttpStatus.OK) {
                 System.out.println("response: " + response.getBody());
-                return ResponseEntity.ok(response.getBody());
+                // Ensure the response entity is JSON
+                HttpHeaders jsonHeaders = new HttpHeaders();
+                jsonHeaders.setContentType(MediaType.APPLICATION_JSON);
+                return new ResponseEntity<>(response.getBody(), jsonHeaders, HttpStatus.OK);
             } else {
                 System.out.println("Error response: " + response.getBody());
                 return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
             }
         } catch (Exception ex) {
             System.out.print("Exception raised in callPythonApi: " + ex);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error communicating with Python API");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                                 .body("{\"message\": \"Error communicating with Python API\"}");
         }
     }
 }

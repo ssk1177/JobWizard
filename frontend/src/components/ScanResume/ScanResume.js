@@ -61,12 +61,19 @@ const ScanResume = ({ show, handleClose }) => {
     })
       .then((response) => {
         if (!response.ok) {
+          // Attempt to parse error response as JSON
           return response.text().then((text) => {
-            throw new Error(text);
+            try {
+              const jsonError = JSON.parse(text);
+              console.error("Error response in JSON:", jsonError);
+              throw new Error(jsonError.message || "Unknown error");
+            } catch {
+              console.error("Non-JSON error response received:", text);
+              throw new Error(text);
+            }
           });
         }
-        console.log("response.json():", response.json());
-//        return response.json();
+        return response.json(); // Response should be JSON
       })
       .then((respdata) => {
         console.log("Response data:", respdata);

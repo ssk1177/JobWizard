@@ -6827,3 +6827,6 @@ Java Model Exception: Error in Java Model (code 969): backendJ does not exist
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-25 16:43:51.903
 !MESSAGE Classpath changed for project: backend-js
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-08-25 17:00:49.099
+!MESSAGE Classpath changed for project: backend-js
