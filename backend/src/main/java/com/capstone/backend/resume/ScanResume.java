@@ -23,7 +23,8 @@ public class ScanResume {
 
     public ResponseEntity<String> callPythonApi(MultipartFile resumeFile, String jobDesc) {
     	try {
-    		String url = "http://localhost:5000/performSimilarityMatch";
+    		//String url = "http://localhost:5000/performSimilarityMatch";
+    		String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
     		
     		// Prepare headers
             HttpHeaders headers = new HttpHeaders();
