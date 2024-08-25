@@ -1,0 +1,22 @@
+.scanResumeModal .modal-content {
+    max-width: none!important;
+    width: max-content;
+    background-size:auto;
+}
+
+.pdf-preview {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Adjust the height as needed */
+  overflow: hidden; /* Prevent scrollbars */
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+textarea#job_description {
+  width: 100%;
+  resize: none; /* Prevent manual resizing */
+  box-sizing: border-box;
+}
+

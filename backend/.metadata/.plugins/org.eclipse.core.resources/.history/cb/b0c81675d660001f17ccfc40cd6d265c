@@ -1,0 +1,52 @@
+package com.capstone.backend.jwtAuth;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+import com.capstone.backend.userDetails.CustomUserDetailsService;
+//import com.capstone.backend.userDetails.*;
+
+@RestController
+public class AuthController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) throws Exception {
+    	try {
+    		System.out.print("Entering login...");
+    		Authentication authentication = authenticationManager.authenticate(
+    				new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+    				);
+    	} catch (BadCredentialsException ex) {
+    		throw new Exception("Incorrect Credentials", ex);
+    	}
+    	
+    	System.out.print("user exist...");
+    	
+    	UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername()); 
+    			//(UserDetails) authentication.getPrincipal();
+    	
+    	System.out.print("generating token...");
+    	
+    	String jwtTok = jwtUtil.generateToken(userDetails);  
+        
+    	return ResponseEntity.ok().body(new AuthResponse(jwtTok));
+    }
+}
+
+
+
+

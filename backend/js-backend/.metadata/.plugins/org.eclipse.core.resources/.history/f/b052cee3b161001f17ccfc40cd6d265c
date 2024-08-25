@@ -1,0 +1,11 @@
+package com.capstone.backend.documents;
+
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface DocumentsRepository extends CrudRepository<Documents, Long>{
+
+	List<Documents> findByUserId(Long userId);
+}
