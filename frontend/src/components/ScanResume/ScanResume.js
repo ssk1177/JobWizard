@@ -103,7 +103,7 @@ const ScanResume = ({ show, handleClose }) => {
   //     .catch((error) => {
   //       console.error("Error:", error);
   //     });
-  // };
+   };
 
   return (
     <Modal
