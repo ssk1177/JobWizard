@@ -8,7 +8,7 @@ import re
 from bs4 import BeautifulSoup
 # import json
 # import PyPDF2
-from docx import Document
+# from docx import Document
 import io
 
 DEBUG = True
@@ -60,10 +60,10 @@ def extract_text_from_docx(docx_blob):
     if DEBUG:
         print("Entering extract_text_from_docx...")
 
-    doc = Document(io.BytesIO(docx_blob))
+    doc = io.BytesIO(docx_blob)  # Document(io.BytesIO(docx_blob))
     text = ""
-    for para in doc.paragraphs:
-        text += para.text + "\n"
+    # for para in doc.paragraphs:
+    #   text += para.text + "\n"
 
     if DEBUG:
         print("Exiting extract_text_from_docx...")
