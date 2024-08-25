@@ -1,13 +1,9 @@
 package com.capstone.backend.userDetails;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.capstone.backend.user.UserRepository;
@@ -38,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());   
     	} catch (Exception ex) {
-    		
+    		System.out.println("Exception raised in loadUserByUsername:"+ex);
     		throw new RuntimeException("Exception raised in loadUserByUsername");
     	}
     	
