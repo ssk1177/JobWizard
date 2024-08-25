@@ -1,0 +1,10 @@
+package com.capstone.backend.userDetails;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserDetailsRepository extends CrudRepository<UserDetails, Integer>{
+
+	Optional<UserDetails> findByUserName(String username);
+}
