@@ -1,5 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify, current_app
 import spacy
+from .util import *
+from werkzeug.utils import secure_filename
 # jsonify, Response, current_app, send_from_directory, request, jsonify
 # from flask_login import login_user, login_required, logout_user, current_user
 # from .models import db, User
@@ -13,147 +15,73 @@ import spacy
 # from markupsafe import Markup
 # import json
 # import base64
-# from .util import *
+
 # from .resume_parse import *
 
-# DEBUG = True
+DEBUG = True
 
 # Create a Blueprint for the routes
 routes = Blueprint('routes', __name__)
 
+# "tfidf_cosine_similarity", "Word_Embeddings", "BERT"
+similarity_method = "tfidf_cosine_similarity"
+# similarity_method = "BERT"
 
-@routes.route('/api/example', methods=['GET'])
-def example():
+# Allow specific file extensions
+ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx'}
+
+
+def allowed_file(filename):
+    """Check if the uploaded file has an allowed extension."""
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+@routes.route('/performSimilarityMatch', methods=['POST'])
+def performSimilarityMatch():
     try:
-        nlp = spacy.load('en_core_web_sm')
-        print("Model loaded successfully!")
-        return ""
-    except Exception as e:  # OSError as e:
-        spacy.cli.download("en_core_web_sm")
-        nlp = spacy.load('en_core_web_sm')
-        print(f"Error: {e}")
+        # Check if the request contains both the file and job description parts
+        if 'resume' not in request.files or 'job_desc' not in request.form:
+            return jsonify({"error": "Missing file or job description in the request"}), 400
 
+        resume = request.files['resume']
+        job_desc = request.form['job_desc']
 
-# @routes.route('/manifest.json')
-# def manifest():
-#     return send_from_directory('static', 'manifest.json', mimetype='application/json')
+        # If the user does not select a file, the browser also submits an empty part without filename
+        if resume.filename == '':
+            return jsonify({"error": "No selected file"}), 400
 
+        if resume and allowed_file(resume.filename):
+            filename = secure_filename(resume.filename)
+            print("data:", filename)
 
-# @routes.route('/analytics/data')
-# @login_required
-# def analytics_data():
-#     if DEBUG:
-#         print("Entering analytics_data...")
+            try:
+                nlp = spacy.load('en_core_web_sm')
+            except OSError as e:
+                spacy.cli.download("en_core_web_sm")
+                nlp = spacy.load('en_core_web_sm')
 
-#     data = {
-#         'lineChartData': [487, 543, 328, 435],
-#         'pieChartData': [30, 70],
-#         'doughnutChartData': 118,
-#         'mapData': [
-#             {'location': 'New York', 'value': 10},
-#             {'location': 'London', 'value': 20},
-#             {'location': 'Tokyo', 'value': 30},
-#         ],
-#         'barChartData': [10, 20, 30, 40, 50, 60, 70, 80],
-#         'stats': [95, 135, 87, 39]
-#     }
+            resume_blob = resume.stream.read()  # Read the resume file stream
 
-#     if DEBUG:
-#         print("Exiting analytics_data...data:", data)
+            parsed_resume = parse_resume(nlp, resume_blob)
+            job_texts = extract_entities(nlp, job_desc)
 
-#     return jsonify(data)
+            # Get similarities and matched texts
+            similarities, matched_resume_texts, matched_job_texts = tfidf_cosine_similarity(
+                parsed_resume, job_texts)
 
-# # @routes.after_request
-# # def after_request(response):
-# #     print("inside after_request")
-# #     # Log the headers
-# #     logging.debug(f"Response Headers: {response.headers}")
-# #     return response
+            response = {
+                "score": round(similarities[0] * 100, 2),
+                "matched_resume_texts": matched_resume_texts,
+                "matched_job_texts": matched_job_texts
+            }
 
+            return jsonify(response), 200
 
-# # @routes.route('/register', methods=['GET', 'POST', 'OPTIONS'])
-# # def register():
-# #     if DEBUG:
-# #         print("Inside register, entering...")
-
-# #     try:
-# #         data = request.json
-
-# #         print("Inside register, data:", data)
-
-# #         hashed_password = genHashPass(data.get('password'))
-
-# #         new_user = User(username=data.get('username'),
-# #                         password=hashed_password,
-# #                         email=data.get('email'),
-# #                         created_on=datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
-
-# #         db.session.merge(new_user)
-# #         db.session.commit()
-
-# #         # Verify if user is created
-# #         fetched_user = db.session.query(User).filter_by(
-# #             email=data.get('email')).first()
-
-# #         if fetched_user:
-# #             print("new user id:", fetched_user.id)
-# #             # Create user_details for the registered user
-# #             db.session.add(User_details(user_id=fetched_user.id,
-# #                                         profile_pic=compressImg(
-# #                                             'static/images/profile-default-icon.png'),
-# #                                         email=fetched_user.email,
-# #                                         updated_on=datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')))
-
-# #             # Add basic settings
-# #             db.session.add(Settings(user_id=fetched_user.id,
-# #                                     auto_apply=False,
-# #                                     webscrape_sites='Indeed',
-# #                                     match_score_cutoff=45))
-
-# #             db.session.commit()
-# #         else:
-# #             print("User creation failed")
-
-# #         db.session.close()
-
-# #         return jsonify({"message": "User registered successfully!"}), 200
-
-# #     except Exception as e:
-# #         current_app.logger.error(
-# #             "Error registering profile: %s", e, exc_info=True)
-# #         print("Inside register, Exception raised, reason:", e)
-
-# #         msg = "{reason} User registeration failed!".format(reason=e)
-# #         return jsonify({"message": msg}), 500
-
-
-# # @ routes.route('/login', methods=['GET', 'POST'])
-# # def login():
-
-# #     try:
-# #         data = request.json
-
-# #         print("Inside login, data:", data)
-
-# #         user = User.query.filter_by(username=data['username']).first()
-
-# #         if user and checkHashPass(user.password, data['password']):
-# #             login_user(user)
-
-# #             if DEBUG:
-# #                 print("Inside login, current user:", current_user.id)
-
-# #             return jsonify({"message": "User Logged In Successfully!"}), 200
-# #         else:
-# #             return jsonify({"message": "User Login failed, Check Credentials!"}), 500
-
-# #     except Exception as e:
-
-# #         print("Inside login, Exception raised, reason:", e)
-
-# #         msg = "{reason} User login failed!".format(reason=e)
-# #         return jsonify({"message": msg}), 500
-
+    except Exception as e:
+        current_app.logger.error(
+            "Error performSimilarityMatch: %s", e, exc_info=True)
+        print("Exception raised in performSimilarityMatch:", e)
+        return jsonify({"message": f"Exception: {str(e)}"}), 500
 
 # def getRequiredData(userId):
 #     response_data = {}

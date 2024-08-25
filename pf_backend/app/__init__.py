@@ -1,10 +1,13 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 
 def create_app():
 
     app = Flask(__name__)
 
+    # CORS(app, origins=["https://js-backend-87944927099d.herokuapp.com/"])
+    CORS(app, origins=["http://localhost:8080/"])
     # Configuration settings
     # app.config.from_object('config.Config')
 

@@ -51,7 +51,7 @@ const ScanResume = ({ show, handleClose }) => {
     event.preventDefault();
     const form = document.getElementById("scanResumeForm");;
     const formData = new FormData(form);
-    console.log("formData:", formData)
+    
     fetch(`${API_URL}/scan_resume`, {
       method: "POST",
       body: formData,

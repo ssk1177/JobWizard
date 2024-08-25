@@ -1,7 +1,7 @@
 from flask import Flask  # , render_template
 # from sklearn.feature_extraction.text import TfidfVectorizer
 # from sklearn.metrics.pairwise import cosine_similarity
-import spacy
+
 # import re
 # # import fitz  # PyMuPDF
 # # import requests
@@ -14,11 +14,7 @@ import spacy
 # DEBUG = True
 
 # nlp = spacy.load("en_core_web_sm")
-try:
-    nlp = spacy.load('en_core_web_sm')
-    print("Model loaded successfully!")
-except OSError as e:
-    print(f"Error: {e}")
+
 
 # # "tfidf_cosine_similarity", "Word_Embeddings", "BERT"
 # similarity_method = "tfidf_cosine_similarity"
