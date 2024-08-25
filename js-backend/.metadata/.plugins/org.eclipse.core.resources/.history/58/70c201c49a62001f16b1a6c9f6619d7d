@@ -1,0 +1,5 @@
+package com.capstone.backend.resume;
+
+public class ResumeRequest {
+
+}
