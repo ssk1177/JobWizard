@@ -16,9 +16,12 @@
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/SecurityConfig.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/notifications/Notifications.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/notifications/NotificationsRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/resume/MultipartFileResource.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/resume/ResumeController.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/resume/ScanResume.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/settings/Settings.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/settings/SettingsRepository.java
-/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/ImageUploadService.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/ImageService.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/LoginRequest.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/PasswordService.java
 /Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/ProfileService.java
