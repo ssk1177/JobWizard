@@ -19,7 +19,9 @@ def create_app():
     try:
         nlp = spacy.load('en_core_web_sm')
         print("Model loaded successfully!")
-    except OSError as e:
+    except Exception as e:  # OSError as e:
+        spacy.cli.download("en_core_web_sm")
+        nlp = spacy.load('en_core_web_sm')
         print(f"Error: {e}")
     # Configuration settings
     # app.config.from_object('config.Config')
