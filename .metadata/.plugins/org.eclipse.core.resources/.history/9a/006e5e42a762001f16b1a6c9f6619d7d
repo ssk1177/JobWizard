@@ -19,7 +19,7 @@ public class ResumeController {
 	@PostMapping("/scan_resume")
 	public ResponseEntity<?> scanResume(
             @RequestParam(value = "resumeBrowse", required = false) MultipartFile resumeFile,
-            @RequestParam("job_description") String jobDesc) {
+            @RequestParam("jobDesc") String jobDesc) {
 			//@RequestBody ResumeRequest resumeRequest) {
 		System.out.println("Entering scanResume...");
 		try {
