@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/surendrasingh/Documents/JobWizard/backend-js/src/main/java/com/capstone/backendJ/JobwizardApplication.java
 /Users/surendrasingh/Documents/JobWizard/backend-js/src/main/java/com/capstone/backendJ/address/Address.java
 /Users/surendrasingh/Documents/JobWizard/backend-js/src/main/java/com/capstone/backendJ/address/AddressRepository.java
@@ -34,3 +35,41 @@
 /Users/surendrasingh/Documents/JobWizard/backend-js/src/main/java/com/capstone/backendJ/userDetails/UserDetails.java
 /Users/surendrasingh/Documents/JobWizard/backend-js/src/main/java/com/capstone/backendJ/userDetails/UserDetailsController.java
 /Users/surendrasingh/Documents/JobWizard/backend-js/src/main/java/com/capstone/backendJ/userDetails/UserDetailsRepository.java
+=======
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/JobwizardApplication.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/address/Address.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/address/AddressRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/applications/Application.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/applications/ApplicationController.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/applications/ApplicationRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/config/CorsConfig.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/documents/Documents.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/documents/DocumentsRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/AuthController.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/AuthRequest.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/AuthResponse.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/JwtAuthenticationFilter.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/JwtAuthenticationToken.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/JwtUtil.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/jwtAuth/SecurityConfig.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/notifications/Notifications.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/notifications/NotificationsRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/resume/MultipartFileResource.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/resume/ResumeController.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/resume/ScanResume.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/settings/Settings.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/settings/SettingsRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/ImageService.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/LoginRequest.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/PasswordService.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/ProfileService.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/RegisterRequest.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/User.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/UserController.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/UserRepository.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/user/UserService.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/userDetails/CustomUserDetailsService.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/userDetails/UserDetails.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/userDetails/UserDetailsController.java
+/Users/surendrasingh/Documents/JobWizard/backend/src/main/java/com/capstone/backend/userDetails/UserDetailsRepository.java
+>>>>>>> 9e52e82c5116c922a58f21d4746ee0a735a2ce17
