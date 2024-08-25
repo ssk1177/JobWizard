@@ -1,28 +1,10 @@
-from flask import Flask
-# from flask_login import LoginManager
-# from flask_bcrypt import Bcrypt
-# from flask_sqlalchemy import SQLAlchemy
-# from datetime import datetime
-# from .util import *
-# from flask_migrate import Migrate
-
-# bcrypt = Bcrypt()
-# db = SQLAlchemy()
-# login_manager = LoginManager()
-import spacy
+from flask import Flask, jsonify, request
 
 
 def create_app():
 
     app = Flask(__name__)
 
-    try:
-        nlp = spacy.load('en_core_web_sm')
-        print("Model loaded successfully!")
-    except Exception as e:  # OSError as e:
-        spacy.cli.download("en_core_web_sm")
-        nlp = spacy.load('en_core_web_sm')
-        print(f"Error: {e}")
     # Configuration settings
     # app.config.from_object('config.Config')
 
@@ -79,9 +61,9 @@ def create_app():
     # CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
     # Register the Blueprint with the app
-    # with app.app_context():
-    #     # Import the routes module at the end to avoid circular imports
-    #     from .routes import routes
-    #     app.register_blueprint(routes)
+    with app.app_context():
+        # Import the routes module at the end to avoid circular imports
+        from .routes import routes
+        app.register_blueprint(routes)
 
     return app
