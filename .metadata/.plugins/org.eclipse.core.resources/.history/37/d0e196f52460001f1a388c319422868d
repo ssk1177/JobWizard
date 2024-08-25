@@ -1,0 +1,21 @@
+package com.capstone.backend.applications;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ApplicationsController {
+
+	@Autowired
+	public ApplicationsRepository applicationsRepository;
+	
+	@GetMapping("/get_listings")
+	public List<Application> getListings() {
+		
+		
+		return applicationsRepository.findAll();
+	}
+	
+	
+}

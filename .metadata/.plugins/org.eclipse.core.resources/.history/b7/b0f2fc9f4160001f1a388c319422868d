@@ -1,0 +1,42 @@
+package com.capstone.backend.jwtAuth;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/auth")
+public class AuthController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @PostMapping("/login")
+    public String login(@RequestBody AuthRequest authRequest) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+        );
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
+        return jwtUtil.generateToken(userDetails.getUsername());
+    }
+
+    @PostMapping("/register")
+    public String register(@RequestBody RegisterRequest registerRequest) {
+        // Handle user registration (save to database, encrypt password, etc.)
+        return "User registered successfully";
+    }
+}
+

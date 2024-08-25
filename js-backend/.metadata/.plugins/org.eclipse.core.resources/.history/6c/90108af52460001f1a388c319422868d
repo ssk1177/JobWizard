@@ -1,0 +1,9 @@
+package com.capstone.backend.applications;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ApplicationsController {
+
+	
+}

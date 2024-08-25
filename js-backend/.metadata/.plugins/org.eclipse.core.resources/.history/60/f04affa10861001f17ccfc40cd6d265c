@@ -1,0 +1,7 @@
+package com.capstone.backend.notifications;
+
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface NotificationsRepository extends CrudRepository<Documents, Long>{
+}

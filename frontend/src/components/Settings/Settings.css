@@ -1,0 +1,34 @@
+/* styles.css */
+.container.fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.col-sm {
+  flex: 1;
+}
+
+.btn-primary {
+  background-color: blue;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
