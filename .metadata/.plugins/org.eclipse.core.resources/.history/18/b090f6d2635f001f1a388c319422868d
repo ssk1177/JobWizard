@@ -1,5 +1,0 @@
-package com.capstone.backend.config;
-
-public class CorsConfig {
-
-}
