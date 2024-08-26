@@ -11,15 +11,18 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 
 const ScanResumeResult = () => {
   const location = useLocation();
-  const { data } = location.state;
+  console.log("Location state:", location.state);
 
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [matchScore, setMatchScore] = useState(data.score);
-  const [resumeFileData, setResumeFileData] = useState(data.resumeFileData);
+  const { state } = location;
+
+  // Initialize state with default values or from location state
+  const [matchScore, setMatchScore] = useState(state?.score || 0);
+  const [resumeFileData, setResumeFileData] = useState(
+    state?.resumeFileData || ""
+  );
   const [resumeText, setResumeText] = useState(""); // Set this based on your backend data or other processing
   const [jobDescriptionText, setJobDescriptionText] = useState(
-    data.jobDescriptionText
+    state?.jobDescriptionText || ""
   );
   const [showCoverLetter, setShowCoverLetter] = useState(false);
   const [coverLetter, setCoverLetter] = useState("");
