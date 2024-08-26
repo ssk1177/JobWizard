@@ -21,13 +21,21 @@ const ScanResume = ({ show, handleClose }) => {
   const token = localStorage.getItem("jwt");
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file && file.type === "application/pdf") {
+  const file = event.target.files[0];
+  if (file && file.type === "application/pdf") {
+    const reader = new FileReader();
+    
+    reader.onloadend = () => {
+      const base64String = reader.result.split(',')[1]; // Extract base64 part
       setPdfUrl(URL.createObjectURL(file));
-    } else {
-      setPdfUrl(null);
-    }
-  };
+      setResumeFileData(base64String); // Store base64 string
+    };
+
+    reader.readAsDataURL(file);
+  } else {
+    setPdfUrl(null);
+  }
+};
 
   const handleDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
@@ -49,7 +57,7 @@ const ScanResume = ({ show, handleClose }) => {
 
   const scanResumeSubmit = (event) => {
     event.preventDefault();
-    const form = document.getElementById("scanResumeForm");;
+    const form = document.getElementById("scanResumeForm");
     const formData = new FormData(form);
 
     fetch(`${API_URL}/scan_resume`, {
@@ -73,49 +81,24 @@ const ScanResume = ({ show, handleClose }) => {
             }
           });
         }
-        return response.json(); // Response should be JSON
+        return response.json();
       })
       .then((respdata) => {
         console.log("Response data:", respdata);
         navigate("/ScanResumeResult", {
-            state: {
-              data: respdata,
-            },
-          });
-        // Handle the JSON response here
+          state: {
+            resumeFileData: resumeFileData, // Pass base64 data
+            matched_job_texts: respdata.matched_job_texts,
+            matched_resume_texts: respdata.matched_resume_texts,
+            score: respdata.score,
+            jobDescriptionText: jobDescription,
+          },
+        });
       })
       .catch((error) => {
         console.error("Error:", error.message);
-        // Show error to the user
       });
-    
-  //   fetch(`${API_URL}/scan_resume`, {
-  //     method: "POST",
-  //     body: formData,
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((respdata) => {
-  //       console.log("data:", respdata);
-  //       console.log("status:", respdata.status);
-  //       if (respdata.status === 200) {
-  //         console.log("Success:", respdata);
-
-  //         navigate("/ScanResumeResult", {
-  //           state: {
-  //             data: respdata,
-  //           },
-  //         });
-  //       } else {
-  //         console.log("Failure:", respdata);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //     });
-   };
+  };
 
   return (
     <Modal

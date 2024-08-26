@@ -16,8 +16,11 @@ const ScanResumeResult = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [matchScore, setMatchScore] = useState(data.score);
-  const [resumeText, setResumeText] = useState("");
-  const [jobDescriptionText, setJobDescriptionText] = useState("");
+  const [resumeFileData, setResumeFileData] = useState(data.resumeFileData);
+  const [resumeText, setResumeText] = useState(""); // Set this based on your backend data or other processing
+  const [jobDescriptionText, setJobDescriptionText] = useState(
+    data.jobDescriptionText
+  );
   const [showCoverLetter, setShowCoverLetter] = useState(false);
   const [coverLetter, setCoverLetter] = useState("");
   const [highlightedResumeText, setHighlightedResumeText] = useState("");
@@ -94,6 +97,8 @@ const ScanResumeResult = () => {
       ? "Good Score"
       : "High Score";
 
+  const resumeUrl = `data:application/pdf;base64,${resumeFileData}`;
+
   return (
     <Layout>
       <div
@@ -125,8 +130,8 @@ const ScanResumeResult = () => {
             <div className="col-md-6">
               <h5
                 style={{
-                  "font-weight": "900",
-                  "font-family": "serif",
+                  fontWeight: "900",
+                  fontFamily: "serif",
                 }}
               >
                 Resume
@@ -167,8 +172,8 @@ const ScanResumeResult = () => {
               <h5
                 id="jobdesc"
                 style={{
-                  "font-weight": "900",
-                  "font-family": "serif",
+                  fontWeight: "900",
+                  fontFamily: "serif",
                 }}
               >
                 Job Description
@@ -176,7 +181,7 @@ const ScanResumeResult = () => {
               <div
                 className="job-description-text border p-3"
                 style={{
-                  "text-align": "left",
+                  textAlign: "left",
                 }}
                 ref={jobDescriptionRef}
                 dangerouslySetInnerHTML={{ __html: highlightedJobText }}
