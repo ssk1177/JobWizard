@@ -77,6 +77,11 @@ const ScanResume = ({ show, handleClose }) => {
       })
       .then((respdata) => {
         console.log("Response data:", respdata);
+        navigate("/ScanResumeResult", {
+            state: {
+              data: respdata,
+            },
+          });
         // Handle the JSON response here
       })
       .catch((error) => {
