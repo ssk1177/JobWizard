@@ -4,16 +4,14 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "./ScanResumeResult.css";
 import Layout from "../Layout";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-
 import CircularProgressBar from "./CircularProgressBar";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const ScanResumeResult = () => {
   const location = useLocation();
-  console.log("Location state:", location.state);
-
   const { state } = location;
+  console.log("Location state:", state);
 
   // Initialize state with default values or from location state
   const [matchScore, setMatchScore] = useState(state?.score || 0);
@@ -28,6 +26,8 @@ const ScanResumeResult = () => {
   const [coverLetter, setCoverLetter] = useState("");
   const [highlightedResumeText, setHighlightedResumeText] = useState("");
   const [highlightedJobText, setHighlightedJobText] = useState("");
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const pdfWrapperRef = useRef(null);
   const divRef = useRef(null);
@@ -35,7 +35,7 @@ const ScanResumeResult = () => {
 
   useEffect(() => {
     // Initialize with data from backend
-    const { matched_resume_texts, matched_job_texts } = data;
+    const { matched_resume_texts, matched_job_texts } = state || {};
 
     // Function to highlight text
     const highlightText = (text, matches) => {
@@ -52,18 +52,19 @@ const ScanResumeResult = () => {
       return highlighted;
     };
 
-    // Assuming resumeText and jobDescriptionText are fetched from backend
-    // and they are already in plain text format (not PDF)
+    // Highlight text with the matched keywords
     setHighlightedResumeText(
-      highlightText(resumeText, data.matched_resume_texts)
+      highlightText(resumeText, matched_resume_texts || [])
     );
     setHighlightedJobText(
-      highlightText(jobDescriptionText, data.matched_job_texts)
+      highlightText(jobDescriptionText, matched_job_texts || [])
     );
-  }, [data, resumeText, jobDescriptionText]);
+  }, [state, resumeText, jobDescriptionText]);
 
   const onRenderSuccess = () => {
-    jobDescriptionRef.current.style.height = `${divRef.current.clientHeight}px`;
+    if (jobDescriptionRef.current && divRef.current) {
+      jobDescriptionRef.current.style.height = `${divRef.current.clientHeight}px`;
+    }
   };
 
   const onDocumentLoadSuccess = ({ numPages }) => {
@@ -99,7 +100,6 @@ const ScanResumeResult = () => {
       : matchScore < 60
       ? "Good Score"
       : "High Score";
-
   const resumeUrl = `data:application/pdf;base64,${resumeFileData}`;
 
   return (
