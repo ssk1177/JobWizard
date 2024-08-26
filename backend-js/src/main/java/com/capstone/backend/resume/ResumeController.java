@@ -22,9 +22,7 @@ public class ResumeController {
             @RequestParam("job_description") String job_description) {
 		
 		try {
-			scanResume.callPythonApi(resumeBrowse, job_description);
-		
-			return ResponseEntity.ok().body("Inside Response Entity");
+			return scanResume.callPythonApi(resumeBrowse, job_description);
 		} catch (Exception ex) {
 			logger.error("Exception raised in scanResume: "+ex);
 			return ResponseEntity.status(500).body("Exception raised in scanResume: "+ex);

@@ -6,8 +6,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.capstone.backend.jwtAuth.JwtAuthenticationFilter;
-
 import org.springframework.http.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +17,7 @@ import org.springframework.http.ResponseEntity;
 
 @Service
 public class ScanResume {
-	private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
+	private static final Logger logger = LoggerFactory.getLogger(ScanResume.class);
 
     private final RestTemplate restTemplate;
 
