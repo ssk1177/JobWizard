@@ -15,6 +15,7 @@ const ScanResume = ({ show, handleClose }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageWidth, setPageWidth] = useState(1);
   const pdfContainerRef = useRef(null);
+  const [resumeFileData, setResumeFileData] = useState(null);
   const jobDescriptionRef = useRef(null);
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
