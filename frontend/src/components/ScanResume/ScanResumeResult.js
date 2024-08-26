@@ -39,28 +39,6 @@ const ScanResumeResult = ({ route, navigation }) => {
 
   };
 
-
-  useEffect(() => {
-    fetch(`${API_URL}/results/`+temp_data_id, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-      .then((response) => response.json())
-      .then((data) => {
-        if(data.status === 200) {
-            setMatchScore(data.match_score);
-            setResumeFilename(data.resume_filename);
-            setResumeFileData(data.resume_data);
-            setResumeText(data.resume_text);
-            setJobDescriptionText(data.job_description_text);
-        } else {
-            console.log("Failure in getting result, msg", data.msg);
-        }
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
   };

@@ -1,217 +1,218 @@
-// ScanResumeModal.js
-import React, { useState, useRef, useEffect } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Document, Page, pdfjs } from "react-pdf";
+import "./ScanResumeResult.css";
+import Layout from "../Layout";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-import { useNavigate } from "react-router-dom";
-import "./ScanResume.css";
+
+import CircularProgressBar from "./CircularProgressBar";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const ScanResume = ({ show, handleClose }) => {
-  const [pdfUrl, setPdfUrl] = useState(null);
-  const [jobDescription, setJobDescription] = useState("");
-  const [matchingMethod, setMatchingMethod] = useState("tfidf");
-  const [numPages, setNumPages] = useState(null);
-  const [pageWidth, setPageWidth] = useState(1);
-  const pdfContainerRef = useRef(null);
-  const jobDescriptionRef = useRef(null);
-  const navigate = useNavigate();
-  const API_URL = process.env.REACT_APP_API_URL;
-  const token = localStorage.getItem("jwt");
+const ScanResumeResult = () => {
+  const location = useLocation();
+  const { data } = location.state;
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file && file.type === "application/pdf") {
-      setPdfUrl(URL.createObjectURL(file));
-    } else {
-      setPdfUrl(null);
-    }
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [matchScore, setMatchScore] = useState(data.score);
+  const [resumeText, setResumeText] = useState("");
+  const [jobDescriptionText, setJobDescriptionText] = useState("");
+  const [showCoverLetter, setShowCoverLetter] = useState(false);
+  const [coverLetter, setCoverLetter] = useState("");
+  const [highlightedResumeText, setHighlightedResumeText] = useState("");
+  const [highlightedJobText, setHighlightedJobText] = useState("");
+
+  const pdfWrapperRef = useRef(null);
+  const divRef = useRef(null);
+  const jobDescriptionRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize with data from backend
+    const { matched_resume_texts, matched_job_texts } = data;
+
+    // Function to highlight text
+    const highlightText = (text, matches) => {
+      if (!text || !matches || matches.length === 0) return text;
+
+      let highlighted = text;
+      matches.forEach((match) => {
+        const regex = new RegExp(`(${match})`, "gi");
+        highlighted = highlighted.replace(
+          regex,
+          '<span class="highlight">$1</span>'
+        );
+      });
+      return highlighted;
+    };
+
+    // Assuming resumeText and jobDescriptionText are fetched from backend
+    // and they are already in plain text format (not PDF)
+    setHighlightedResumeText(
+      highlightText(resumeText, data.matched_resume_texts)
+    );
+    setHighlightedJobText(
+      highlightText(jobDescriptionText, data.matched_job_texts)
+    );
+  }, [data, resumeText, jobDescriptionText]);
+
+  const onRenderSuccess = () => {
+    jobDescriptionRef.current.style.height = `${divRef.current.clientHeight}px`;
   };
 
-  const handleDocumentLoadSuccess = ({ numPages }) => {
+  const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
   };
 
-  const onRenderSuccess = () => {
-    var jdHeight =
-      pdfContainerRef.current.clientHeight +
-      document.querySelector("#resumeBrowse").getBoundingClientRect().height + 20; //margin=20
-
-    jobDescriptionRef.current.style.height = `${jdHeight}px`;
+  const handlePrevPage = () => {
+    setPageNumber((prevPageNumber) => Math.max(prevPageNumber - 1, 1));
   };
 
-  useEffect(() => {
-    if (pdfContainerRef.current) {
-      setPageWidth(pdfContainerRef.current.clientWidth);
-    }
-  }, [pdfContainerRef.current]);
+  const handleNextPage = () => {
+    setPageNumber((prevPageNumber) => Math.min(prevPageNumber + 1, numPages));
+  };
 
-  const scanResumeSubmit = (event) => {
-    event.preventDefault();
-    const form = document.getElementById("scanResumeForm");;
-    const formData = new FormData(form);
+  const handleGenerateCoverLetter = () => {
+    // Mockup logic to generate a cover letter
+    setCoverLetter("Generated Cover Letter Content");
+    setShowCoverLetter(true);
+  };
 
-    fetch(`${API_URL}/scan_resume`, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          // Attempt to parse error response as JSON
-          return response.text().then((text) => {
-            try {
-              const jsonError = JSON.parse(text);
-              console.error("Error response in JSON:", jsonError);
-              throw new Error(jsonError.message || "Unknown error");
-            } catch {
-              console.error("Non-JSON error response received:", text);
-              throw new Error(text);
-            }
-          });
-        }
-        return response.json(); // Response should be JSON
-      })
-      .then((respdata) => {
-        console.log("Response data:", respdata);
-        navigate("/ScanResumeResult", {
-            state: {
-              data: respdata,
-            },
-          });
-        // Handle the JSON response here
-      })
-      .catch((error) => {
-        console.error("Error:", error.message);
-        // Show error to the user
-      });
-    
-  //   fetch(`${API_URL}/scan_resume`, {
-  //     method: "POST",
-  //     body: formData,
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((respdata) => {
-  //       console.log("data:", respdata);
-  //       console.log("status:", respdata.status);
-  //       if (respdata.status === 200) {
-  //         console.log("Success:", respdata);
+  const handleDownloadCoverLetter = () => {
+    // Mockup logic to download the cover letter
+    const blob = new Blob([coverLetter], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "cover-letter.txt";
+    link.click();
+  };
 
-  //         navigate("/ScanResumeResult", {
-  //           state: {
-  //             data: respdata,
-  //           },
-  //         });
-  //       } else {
-  //         console.log("Failure:", respdata);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //     });
-   };
+  const scoreText =
+    matchScore < 40
+      ? "Low Score"
+      : matchScore < 60
+      ? "Good Score"
+      : "High Score";
 
   return (
-    <Modal
-      show={show}
-      onHide={handleClose}
-      size="lg"
-      className="scanResumeModal"
-    >
-      <Modal.Header closeButton>
-        <Modal.Title>Scan Resume</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <form
-          id="scanResumeForm"
-          method="post"
-          encType="multipart/form-data"
-          onSubmit={scanResumeSubmit}
-        >
+    <Layout>
+      <div
+        className="container mt-3"
+        style={{
+          border: "1px solid white",
+          backgroundColor: "aliceblue",
+          borderRadius: "10px",
+          padding: "15px",
+        }}
+      >
+        <div className="container">
           <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <label htmlFor="resume">Upload Resume</label>
-                <input
-                  type="file"
-                  className="form-control-file"
-                  id="resumeBrowse"
-                  name="resumeBrowse"
-                  accept=".pdf"
-                  required
-                  onChange={handleFileChange}
-                />
-                {pdfUrl && (
-                  <div
-                    id="resumePreview"
-                    className="pdf-preview"
-                    ref={pdfContainerRef}
-                  >
-                    <Document
-                      file={pdfUrl}
-                      onLoadSuccess={handleDocumentLoadSuccess}
-                    >
-                      <Page
-                        pageNumber={1}
-                        width={pageWidth}
-                        renderAnnotationLayer={false}
-                        onRenderSuccess={onRenderSuccess}
-                      />
-                    </Document>
+            <div className="col-md-12">
+              <div className="d-flex align-items-center">
+                <div className="match-score mr-3">
+                  Match Score:{" "}
+                  <div style={{ textAlign: "center", padding: "20px" }}>
+                    <CircularProgressBar percentage={matchScore} />
                   </div>
-                )}
+                </div>
+                <div>
+                  <span className="text-muted">{scoreText}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row mt-3">
+            <div className="col-md-6">
+              <h5
+                style={{
+                  "font-weight": "900",
+                  "font-family": "serif",
+                }}
+              >
+                Resume
+              </h5>
+              <div id="pdf-viewer" ref={divRef}>
+                <div ref={pdfWrapperRef}>
+                  <Document
+                    file={resumeUrl}
+                    onLoadSuccess={onDocumentLoadSuccess}
+                  >
+                    <Page
+                      pageNumber={pageNumber}
+                      renderAnnotationLayer={false}
+                      onRenderSuccess={onRenderSuccess}
+                    />
+                  </Document>
+                </div>
+                <div className="navigation-buttons mt-2">
+                  <button
+                    onClick={handlePrevPage}
+                    className="btn btn-secondary btn-sm"
+                  >
+                    Previous
+                  </button>
+                  <span id="page-num" className="mx-2">
+                    Page {pageNumber}
+                  </span>
+                  <button
+                    onClick={handleNextPage}
+                    className="btn btn-secondary btn-sm"
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
             <div className="col-md-6">
-              <div className="form-group">
-                <label htmlFor="job_description" id="jobDesc">
-                  Job Description
-                </label>
-                <textarea
-                  className="form-control"
-                  id="job_description"
-                  name="job_description"
-                  rows="10"
-                  required
-                  value={jobDescription}
-                  onChange={(e) => setJobDescription(e.target.value)}
-                  ref={jobDescriptionRef}
-                ></textarea>
-              </div>
+              <h5
+                id="jobdesc"
+                style={{
+                  "font-weight": "900",
+                  "font-family": "serif",
+                }}
+              >
+                Job Description
+              </h5>
+              <div
+                className="job-description-text border p-3"
+                style={{
+                  "text-align": "left",
+                }}
+                ref={jobDescriptionRef}
+                dangerouslySetInnerHTML={{ __html: highlightedJobText }}
+              />
             </div>
           </div>
-          <div className="form-group" id="method">
-            <label htmlFor="matching_method">Select Matching Method</label>
-            <select
-              className="form-control"
-              id="matching_method"
-              name="matching_method"
-              required
-              value={matchingMethod}
-              onChange={(e) => setMatchingMethod(e.target.value)}
-            >
-              <option value="tfidf">TF-IDF Cosine Similarity</option>
-              <option value="bert">BERT</option>
-            </select>
+          <div className="row mt-3" id="genCover">
+            <div className="col-md-12 text-right">
+              <button
+                onClick={handleGenerateCoverLetter}
+                className="btn btn-primary"
+              >
+                Generate Cover Letter
+              </button>
+            </div>
           </div>
-        </form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button type="submit" variant="primary" onClick={scanResumeSubmit}>
-          Next
-        </Button>
-      </Modal.Footer>
-    </Modal>
+          {showCoverLetter && (
+            <div className="row mt-3" id="cover-letter-container">
+              <div className="col-md-12">
+                <h5>Cover Letter</h5>
+                <div id="cover-letter" className="border p-3">
+                  {coverLetter}
+                </div>
+                <button
+                  onClick={handleDownloadCoverLetter}
+                  className="btn btn-secondary mt-3"
+                >
+                  Download Cover Letter
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </Layout>
   );
 };
 
-export default ScanResume;
+export default ScanResumeResult;

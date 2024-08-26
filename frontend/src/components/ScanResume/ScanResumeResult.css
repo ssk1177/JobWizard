@@ -5,3 +5,8 @@ svg {
 input[type="range"] {
   width: 100%;
 }
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
