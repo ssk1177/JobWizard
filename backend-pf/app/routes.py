@@ -17,7 +17,13 @@ routes = Blueprint('routes', __name__)
 ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx'}
 
 # Load SpaCy model globally
-nlp = spacy.load('en_core_web_md')
+# nlp = spacy.load('en_core_web_md')
+
+try:
+    nlp = spacy.load('en_core_web_md')
+except OSError as e:
+    spacy.cli.download("en_core_web_md")
+    nlp = spacy.load('en_core_web_md')
 
 
 def allowed_file(filename):
