@@ -16,6 +16,9 @@ routes = Blueprint('routes', __name__)
 # Allow specific file extensions
 ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx'}
 
+# Load SpaCy model globally
+nlp = spacy.load('en_core_web_md')
+
 
 def allowed_file(filename):
     """Check if the uploaded file has an allowed extension."""
@@ -38,19 +41,15 @@ def performSimilarityMatch():
             filename = secure_filename(resume.filename)
             print("data:", filename)
 
-            try:
-                nlp = spacy.load('en_core_web_sm')
-            except OSError:
-                spacy.cli.download("en_core_web_sm")
-                nlp = spacy.load('en_core_web_sm')
-
             resume_blob = resume.stream.read()
+            resume_text = extract_text_from_pdf(resume_blob)
+            job_text = preprocess_text(job_desc)
 
-            parsed_resume = parse_resume(nlp, resume_blob)
-            job_texts = extract_entities(nlp, job_desc)
+            parsed_resume = extract_relevant_terms(nlp, resume_text)
+            parsed_job = extract_relevant_terms(nlp, job_text)
 
             similarities, matched_resume_texts, matched_job_texts = tfidf_cosine_similarity(
-                parsed_resume, job_texts)
+                parsed_resume, parsed_job)
 
             response = {
                 "score": round(similarities[0] * 100, 2),
@@ -67,25 +66,12 @@ def performSimilarityMatch():
         return jsonify({"message": f"Exception: {str(e)}"}), 500
 
 
-def parse_resume(nlp, resume_blob):
-    resume_content = extract_text_from_pdf(resume_blob)
-    resume_text = preprocess_text(resume_content)
-    return extract_entities(nlp, resume_text)
-
-
 def extract_text_from_pdf(pdf_blob):
-    if DEBUG:
-        print("Entering extract_text_from_pdf...")
-
-    # Use io.BytesIO to handle the PDF bytes as a file-like object
     pdf_file = io.BytesIO(pdf_blob)
     text = ""
     reader = PdfReader(pdf_file)
     for page in reader.pages:
         text += page.extract_text() or ""
-
-    if DEBUG:
-        print("Exiting extract_text_from_pdf...")
 
     return text
 
@@ -96,9 +82,20 @@ def preprocess_text(text):
     return text
 
 
-def extract_entities(nlp, text):
+def extract_relevant_terms(nlp, text):
+    """
+    Extract relevant terms using SpaCy's NER and POS tagging.
+    This function filters out stop words and non-relevant POS tags.
+    """
     doc = nlp(text)
-    return ' '.join([token.lemma_ for token in doc])
+    relevant_terms = []
+
+    for token in doc:
+        # Check if the token is not a stop word, is an alpha word, and is of a relevant POS
+        if not token.is_stop and token.is_alpha and token.pos_ in ('NOUN', 'PROPN', 'VERB', 'ADJ'):
+            relevant_terms.append(token.lemma_)
+
+    return ' '.join(relevant_terms)
 
 
 def tfidf_cosine_similarity(resume_text, job_text):

@@ -11,4 +11,5 @@
     <fullyQualifiedTypeName name="com.capstone.backend.userDetails.UserDetails"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
 </qualifiedTypeNameHistroy>

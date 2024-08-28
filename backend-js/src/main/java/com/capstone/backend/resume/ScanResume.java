@@ -28,6 +28,7 @@ public class ScanResume {
     public ResponseEntity<String> callPythonApi(MultipartFile resumeBrowse, String job_description) {
         try {
             String url = "https://backend-pf-0b1e7c97ff65.herokuapp.com/performSimilarityMatch";
+        	//String url = "http://localhost:5000/performSimilarityMatch";
             
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.MULTIPART_FORM_DATA);

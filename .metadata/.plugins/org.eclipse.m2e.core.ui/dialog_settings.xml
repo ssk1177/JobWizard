@@ -47,12 +47,18 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.example.demo"/>
+			<item value="com.capstone.backendJ"/>
 			<item value="com.capstone.backend-js"/>
 		</list>
 		<list key="name">
+			<item value="demo"/>
+			<item value="backendJ"/>
 			<item value="backend-js"/>
 		</list>
 		<list key="artifactId">
+			<item value="demo"/>
+			<item value="backendJ"/>
 			<item value="backend-js"/>
 		</list>
 		<list key="projectNameTemplate">
